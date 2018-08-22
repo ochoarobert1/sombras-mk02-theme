@@ -6,6 +6,7 @@ VARIABLES
 
 @blue: #0154B6;
 @gray: #f7f7f7;
+@red: #650000;
 @lightgray: #a5a5a5;
 @black: #000000;
 @white: #FFFFFF;
@@ -15,21 +16,16 @@ CUSTOM LOGIN OVERRIDE
 -------------------------------------------------------------- */
 
 #login {
-    width: 420px;
     padding: 7% 0 0;
 }
 
 .login {
-    background-color: @gray !important;
-    background-image: url(../images/bg.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color: @black  !important;
 
     & h1 {
         background-image: url(../images/logo.png) !important;
         background-repeat: no-repeat;
-        height: 150px;
+        height: 110px;
         background-position: center center !important;
         background-size: contain !important;
         margin-bottom: 20px;
@@ -37,6 +33,10 @@ CUSTOM LOGIN OVERRIDE
 
     & a {
         background-image: none !important;
+        outline: 0;
+        &:hover {
+            outline: 0;
+        }
     }
 
     & form {
@@ -50,141 +50,133 @@ CUSTOM LOGIN OVERRIDE
     & input[type="text"] {
         color: @black;
         background-color: @white;
-        border-color: #dddddd;
-        -webkit-border-radius: 4px;
-        padding: 10px 20px;
+        border-color: transparent;
+        -webkit-border-radius: 0;
+        padding: 8px 10px;
     }
 
     & input[type="password"] {
         color: @black;
         background-color: @white;
-        border-color: #dddddd;
-        -webkit-border-radius: 4px;
-        padding: 10px 20px;
+        border-color: transparent;
+        -webkit-border-radius: 0;
+        padding: 8px 10px;
     }
 
     & .button-primary {
         width: 120px;
         float: right;
-        background-color: #073e55 !important;
-        background: -webkit-gradient(linear, left top, left bottom, from(@blue), to(#073e55));
-        background: -webkit-linear-gradient(top, @blue, #073e55);
-        background: -moz-linear-gradient(top, @blue, #073e55);
-        background: -ms-linear-gradient(top, @blue, #073e55);
-        background: -o-linear-gradient(top, @blue, #073e55);
-        background-image: -ms-linear-gradient(top, @blue 0%, #073e55 100%);
-        color: #ffffff;
-        -webkit-border-radius: 4px;
-        border: 1px solid #032634;
+        background: none @red  !important;
+        color: @white;
+        text-shadow: none;
+        box-shadow: none;
+        -webkit-border-radius: 0px;
+        border: 0;
     }
 
     & .button-primary:hover {
-        background-color: #073e55 !important;
-        background: -webkit-gradient(linear, left top, left bottom, from(@blue), to(#032634));
-        background: -webkit-linear-gradient(top, @blue, #032634);
-        background: -moz-linear-gradient(top, @blue, #032634);
-        background: -ms-linear-gradient(top, @blue, #032634);
-        background: -o-linear-gradient(top, @blue, #032634);
-        background-image: -ms-linear-gradient(top, @blue 0%, #032634 100%);
-        color: #fff;
-        -webkit-border-radius: 4px;
-        border: 1px solid #032634;
+        background: none @red  !important;
+        color: @white;
+        -webkit-border-radius: 0px;
+        text-shadow: none;
+        box-shadow: none;
+        border: 0;
     }
 
     & .button-primary:active {
-        background-color: #073e55 !important;
-        background: -webkit-gradient(linear, left top, left bottom, from(@blue), to(#073e55));
-        background: -webkit-linear-gradient(top, @blue, #073e55);
-        background: -moz-linear-gradient(top, @blue, #073e55);
-        background: -ms-linear-gradient(top, @blue, #073e55);
-        background: -o-linear-gradient(top, @blue, #073e55);
-        background-image: -ms-linear-gradient(top, @blue 0%, #073e55 100%);
-        color: #fff;
-        -webkit-border-radius: 4px;
-        border: 1px solid #032634;
+        background: none @red  !important;
+        color: @white;
+        -webkit-border-radius: 0px;
+        text-shadow: none;
+        box-shadow: none;
+        border: 0;
     }
 
     & label {
         color: @black;
         font-weight: 400;
-        font-size: 15px;
+        font-size: .8rem;
         letter-spacing: -0.5px;
-        line-height: 25px;
+        line-height: 1.5rem;
         margin-bottom: 10px;
         display: block;
         width: 100%;
     }
 
+    & .login #nav {
+        margin: 20px 0 0;
+    }
+
     & #backtoblog a,
     & #nav a {
         text-decoration: none;
-        color: @blue;
+        color: @white;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 10px;
+        font-size: .8rem;
+        line-height: 1rem;
     }
 }
 
-.wp-admin {
-    & .postbox {
-        & .hndle {
-            background-color: @blue;
-            color: @white;
+/* --------------------------------------------------------------
+CUSTOM CSS FOR ADMIN
+-------------------------------------------------------------- */
+
+#adminmenu {
+    & .toplevel_page_sombras-admin {
+        background: @red  !important;
+
+        &:nth-child(1) {
+            & a {
+                color: @white;
+
+                &:hover {
+                    color: @white;
+                }
+            }
         }
 
-        & .toggle-indicator {
-            color: @white;
-        }
-    }
-
-    & .custom-metabox-headline {
-        background: @blue;
-        padding: 5px 15px;
-
-        & h2 {
-            color: @white;
-        }
-    }
-
-    & #footer-thankyou a {
-        color: @blue;
-        font-weight: 500;
-        text-decoration: none;
-
-        &:hover {
-            color: @blue;
+        & img {
+            max-width: 20px;
+            margin-top: -2px;
         }
     }
 }
 
-.toplevel_page_sombras_custom_options {
-    & .custom-clearfix {
-        clear: both;
-        float: none;
-    }
+body.toplevel_page_sombras-admin {
+    background: #383838;
 
     & #wpcontent {
         padding-left: 0;
+    }
 
-        & .sombras_custom_options-header {
-            background: #808080;
-            border-bottom: 1px solid black;
-            padding: 20px;
+    & .sombras-admin-header {
+        background: @black;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
 
-            & .logo-header {
-                max-height: 90px;
-                float: right;
-            }
-
-            & h1 {
-                float: left;
-                margin-top: 2.5%;
-                color: @white;
-            }
-        }
-
-        & .sombras_custom_options-content {
-            padding: 5px 20px;
+        & h2 {
+            color: @white;
+            font-weight: 300;
         }
     }
+
+    & .sombras-admin-body {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+
+        & .sombras-admin-body-column {
+            align-self: center;
+        }
+
+        & h3 {
+            color: @white;
+            font-weight: 600;
+        }
+    }
+
 }

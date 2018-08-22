@@ -1,19 +1,24 @@
 /* --------------------------------------------------------------
 /* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
 -------------------------------------------------------------- */
+
 @import 'less/lesshat.less';
 /* --------------------------------------------------------------
 /* WordPress Core
 -------------------------------------------------------------- */
+
 @import 'less/wordpress-core.less';
 /* --------------------------------------------------------------
 /* Shortcodes Ultimate Custom - ACTIVATE ONLY IF USED
 -------------------------------------------------------------- */
+
 //@import 'less/shortcodes-ultimate-custom.less';
 /* --------------------------------------------------------------
 Variables
 -------------------------------------------------------------- */
+
 /* Pixels */
+
 @1: 1px;
 @2: 2px;
 @3: 3px;
@@ -25,6 +30,7 @@ Variables
 @25: (@20 + @5);
 @30: (@15 + @15);
 /* Colors */
+
 @black: #000000;
 @gray3: #333333;
 @gray6: #666666;
@@ -34,9 +40,11 @@ Variables
 @white: #ffffff;
 @blue: #2B7BCB;
 @orange: #FFB12A;
+@red: #EF0D33;
 
 /* Theme commons
 -------------------------------------------------------------- */
+
 .loading:empty {
     background: url('../images/common/loading.gif') no-repeat center center;
     min-height: 32px;
@@ -48,7 +56,11 @@ Variables
 /* --------------------------------------------------------------
 Body default
 -------------------------------------------------------------- */
-html, body { height: 100%; }
+
+html,
+body {
+    height: 100%;
+}
 
 body {
     font-weight: 400;
@@ -58,17 +70,132 @@ body {
 a {
     .transition(all .2s ease-in-out);
 
-    &:hover { text-decoration: none; }
+    &:hover {
+        text-decoration: none;
+    }
 }
 
-.table-custom {
-    border: 0;
+.the-header {
+    background: @black;
+
+    & .the-social-search {
+        text-align: center;
+        font-size: 1.2rem;
+
+        & a {
+            color: @white;
+            padding: 0 5px;
+        }
+
+        & a:nth-child(1) {
+            padding-right: 25px;
+        }
+
+    }
+
+    & .navbar {
+        padding: 0 5px;
+        & .navbar-nav {
+            & li {
+                & .nav-link {
+                    color: @white;
+                }
+            }
+        }
+    }
 }
 
-.table-custom th {
-    border: 0;
+.floating-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    left: 0;
+    padding: 0;
+    z-index: 3;
+    .transform(translate3d(0, 0, 0));
+    .transition(all .2s ease-in-out);
 }
 
-.table-custom td {
-    border: 0;
+.floating-nav__inner {
+    height: auto;
+    width: 100%;
+    padding: 0 0;
+    background: @black;
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.floating-nav.is-hidden {
+    .transform(translate3d(0, -210px, 0));
+}
+
+/* --------------------------------------------------------------
+2.- FOOTER
+-------------------------------------------------------------- */
+
+.the-footer {
+    background: @black;
+    color: @white;
+    padding: 35px 0px;
+
+    & .footer-menu {
+
+        & .widgettitle {
+            font-weight: 300;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            border-bottom: 1px solid @gray9;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        & .menu {
+            line-height: 2.5rem;
+        }
+
+        & ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        & a {
+            color: @white;
+        }
+    }
+}
+
+.footer-copyright {
+    background: @black;
+    color: @white;
+    text-align: center;
+    padding: 10px;
+
+    & a {
+        color: @white;
+    }
+
+    & h6 {
+        margin-top: 10px;
+        font-size: .9rem;
+        letter-spacing: -.5px;
+        color: @gray9;
+
+        & a {
+            color: @red;
+            font-weight: 600;
+        }
+    }
+}
+
+.sombras-news-widget {
+    & .media {
+        margin-bottom: 15px;
+    }
+
+    & h5 {
+        font-size: .8rem;
+        font-weight: 400;
+        line-height: 1.2rem;
+    }
 }

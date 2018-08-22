@@ -84,20 +84,11 @@ add_theme_support( 'custom-background',
                  );
 
 /* --------------------------------------------------------------
-    ADD CUSTOM EDITOR STYLE
--------------------------------------------------------------- */
-function sombras_add_editor_styles() {
-    add_editor_style( get_stylesheet_directory_uri() . '/css/editor-styles.css' );
-}
-add_action( 'admin_init', 'sombras_add_editor_styles' );
-
-/* --------------------------------------------------------------
     ADD NAV MENUS LOCATIONS
 -------------------------------------------------------------- */
 
 register_nav_menus( array(
     'header_menu' => __( 'Menu Header - Principal', 'sombras' ),
-    'footer_menu' => __( 'Menu Footer - Principal', 'sombras' ),
 ) );
 
 /* --------------------------------------------------------------
@@ -105,6 +96,7 @@ register_nav_menus( array(
 -------------------------------------------------------------- */
 
 add_action( 'widgets_init', 'sombras_widgets_init' );
+
 function sombras_widgets_init() {
     register_sidebar( array(
         'name' => __( 'Sidebar Principal', 'sombras' ),
@@ -116,6 +108,17 @@ function sombras_widgets_init() {
         'after_title'   => '</h2>',
     ) );
 
+    register_sidebars( 4, array(
+        'name'          => __('Pie de Pagina %d', 'sombras'),
+        'id'            => 'sidebar_footer',
+        'description'   => __('Sección de Pie de Pagina %d', 'sombras'),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>'
+    ) );
+
+
     //    register_sidebar( array(
     //        'name' => __( 'Shop Sidebar', 'sombras' ),
     //        'id' => 'shop_sidebar',
@@ -125,6 +128,9 @@ function sombras_widgets_init() {
     //        'before_title'  => '<h2 class="widgettitle">',
     //        'after_title'   => '</h2>',
     //    ) );
+
+    /* SPECIAL WIDGET FOR NEWS */
+    register_widget( 'sombras_news_widget' );
 }
 
 /* --------------------------------------------------------------
@@ -166,7 +172,13 @@ require_once('includes/wp_custom_post_type.php');
     ADD CUSTOM THEME CONTROLS
 -------------------------------------------------------------- */
 
-//require_once('includes/wp_custom_theme_control.php');
+require_once('includes/wp_custom_theme_control.php');
+
+/* --------------------------------------------------------------
+    ADD CUSTOM FUNCTIONS FOR CONSTRUCTOR
+-------------------------------------------------------------- */
+
+require_once('includes/wp_jscomposer_extended.php');
 
 /* --------------------------------------------------------------
     ADD CUSTOM IMAGE SIZE
@@ -176,7 +188,5 @@ if ( function_exists('add_theme_support') ) {
     set_post_thumbnail_size( 9999, 400, true);
 }
 if ( function_exists('add_image_size') ) {
-    add_image_size('avatar', 100, 100, true);
-    add_image_size('blog_img', 276, 217, true);
-    add_image_size('single_img', 636, 297, true );
+    add_image_size('avatar', 64, 64, true);
 }

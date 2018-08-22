@@ -61,3 +61,99 @@ add_filter('get_image_tag_class', 'image_tag_class' );
 
 if ( ! isset( $content_width ) ) $content_width = 1170;
 
+/* --------------------------------------------------------------
+    ADD CUSTOM NEWS WIDGET - FOR FOOTER
+-------------------------------------------------------------- */
+
+class sombras_news_widget extends WP_Widget {
+
+    /**
+     * Sets up the widgets name etc
+     */
+    public function __construct() {
+        $widget_ops = array(
+            'classname' => 'sombras-news-widget',
+            'description' => esc_html__( 'Noticias Destacadas con foto a la izquierda', 'sombras' ),
+        );
+        parent::__construct( 'sombras_widget', esc_html__( 'Noticias Destacadas', 'sombras' ), $widget_ops );
+    }
+
+    /**
+     * Outputs the content of the widget
+     *
+     * @param array $args
+     * @param array $instance
+     */
+    public function widget( $args, $instance ) {
+        echo $args['before_widget'];
+        if ( ! empty( $instance['title'] ) ) {
+            echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
+        }
+
+        if ( ! empty( $instance['quantity'] ) ) {
+            $cantidad = $instance['quantity'];
+        } else {
+            $cantidad = 4;
+        }
+
+        $args2 = array('post_type' => 'post', 'posts_per_page' => $cantidad, 'order_by' => 'date', 'order' => 'DESC');
+        query_posts($args2);
+        if (have_posts()) :
+?>
+<ul class="list-unstyled">
+    <?php while(have_posts()) : the_post(); ?>
+    <li class="media">
+        <?php $url = get_the_post_thumbnail_url(get_the_ID(), 'avatar'); ?>
+        <a href="<?php the_permalink(); ?>" title="<?php _e('Ver noticia en detalle', 'sombras'); ?>">
+            <img class="align-self-center mr-3" src="<?php echo $url; ?>" alt="<?php echo get_the_title(); ?>" />
+        </a>
+        <div class="media-body">
+            <a href="<?php the_permalink(); ?>" title="<?php _e('Ver noticia en detalle', 'sombras'); ?>">
+                <h5 class="mt-0"><?php the_title(); ?></h5>
+            </a>
+        </div>
+    </li>
+    <?php endwhile; ?>
+</ul>
+<?php
+        endif;
+        wp_reset_query();
+        echo $args['after_widget'];
+    }
+
+    /**
+     * Outputs the options form on admin
+     *
+     * @param array $instance The widget options
+     */
+    public function form( $instance ) {
+        $title = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Noticias', 'sombras' );
+        $quantity = ! empty( $instance['quantity'] ) ? $instance['quantity'] : 4;
+?>
+<p>
+    <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Título', 'sombras' ); ?>:</label>
+    <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+</p>
+<p>
+    <label for="<?php echo esc_attr( $this->get_field_id( 'quantity' ) ); ?>"><?php esc_attr_e( 'Cantidad de Noticias a Mostrar', 'sombras' ); ?>:</label>
+    <input class="tiny-text" id="<?php echo esc_attr( $this->get_field_id( 'quantity' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'quantity' ) ); ?>" type="number" value="<?php echo esc_attr( $quantity ); ?>" step="1" min="1" size="3">
+</p>
+<?php
+    }
+
+    /**
+     * Processing widget options on save
+     *
+     * @param array $new_instance The new options
+     * @param array $old_instance The previous options
+     *
+     * @return array
+     */
+    public function update( $new_instance, $old_instance ) {
+        $instance = array();
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
+        $instance['quantity'] = ( ! empty( $new_instance['quantity'] ) ) ? sanitize_text_field( $new_instance['quantity'] ) : '';
+
+        return $instance;
+    }
+}

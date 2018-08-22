@@ -32,7 +32,7 @@ function sombras_load_css() {
         } else {
 
             /*- BOOTSTRAP CORE -*/
-            wp_register_style('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css', false, '4.1.0', 'all');
+            wp_register_style('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css', false, '4.1.3', 'all');
             wp_enqueue_style('bootstrap-css');
 
             /*- ANIMATE CSS -*/

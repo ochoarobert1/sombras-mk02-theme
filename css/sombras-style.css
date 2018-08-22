@@ -306,12 +306,109 @@ a {
 a:hover {
   text-decoration: none;
 }
-.table-custom {
-  border: 0;
+.the-header {
+  background: #000000;
 }
-.table-custom th {
-  border: 0;
+.the-header .the-social-search {
+  text-align: center;
+  font-size: 1.2rem;
 }
-.table-custom td {
-  border: 0;
+.the-header .the-social-search a {
+  color: #ffffff;
+  padding: 0 5px;
+}
+.the-header .the-social-search a:nth-child(1) {
+  padding-right: 25px;
+}
+.the-header .navbar {
+  padding: 0 5px;
+}
+.the-header .navbar .navbar-nav li .nav-link {
+  color: #ffffff;
+}
+.floating-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+  padding: 0;
+  z-index: 3;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+.floating-nav__inner {
+  height: auto;
+  width: 100%;
+  padding: 0 0;
+  background: #000000;
+  box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+.floating-nav.is-hidden {
+  -webkit-transform: translate3d(0, -210px, 0);
+  -moz-transform: translate3d(0, -210px, 0);
+  -ms-transform: translate3d(0, -210px, 0);
+  -o-transform: translate3d(0, -210px, 0);
+  transform: translate3d(0, -210px, 0);
+}
+/* --------------------------------------------------------------
+2.- FOOTER
+-------------------------------------------------------------- */
+.the-footer {
+  background: #000000;
+  color: #ffffff;
+  padding: 35px 0px;
+}
+.the-footer .footer-menu .widgettitle {
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  border-bottom: 1px solid #999999;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+.the-footer .footer-menu .menu {
+  line-height: 2.5rem;
+}
+.the-footer .footer-menu ul {
+  list-style: none;
+  padding-left: 0;
+}
+.the-footer .footer-menu a {
+  color: #ffffff;
+}
+.footer-copyright {
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px;
+}
+.footer-copyright a {
+  color: #ffffff;
+}
+.footer-copyright h6 {
+  margin-top: 10px;
+  font-size: .9rem;
+  letter-spacing: -0.5px;
+  color: #999999;
+}
+.footer-copyright h6 a {
+  color: #ef0d33;
+  font-weight: 600;
+}
+.sombras-news-widget .media {
+  margin-bottom: 15px;
+}
+.sombras-news-widget h5 {
+  font-size: .8rem;
+  font-weight: 400;
+  line-height: 1.2rem;
 }

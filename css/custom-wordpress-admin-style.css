@@ -7,26 +7,25 @@ VARIABLES
 CUSTOM LOGIN OVERRIDE
 -------------------------------------------------------------- */
 #login {
-  width: 420px;
   padding: 7% 0 0;
 }
 .login {
-  background-color: #f7f7f7 !important;
-  background-image: url(../images/bg.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  background-color: #000000 !important;
 }
 .login h1 {
   background-image: url(../images/logo.png) !important;
   background-repeat: no-repeat;
-  height: 150px;
+  height: 110px;
   background-position: center center !important;
   background-size: contain !important;
   margin-bottom: 20px;
 }
 .login a {
   background-image: none !important;
+  outline: 0;
+}
+.login a:hover {
+  outline: 0;
 }
 .login form {
   -webkit-border-radius: 5px;
@@ -38,116 +37,108 @@ CUSTOM LOGIN OVERRIDE
 .login input[type="text"] {
   color: #000000;
   background-color: #ffffff;
-  border-color: #dddddd;
-  -webkit-border-radius: 4px;
-  padding: 10px 20px;
+  border-color: transparent;
+  -webkit-border-radius: 0;
+  padding: 8px 10px;
 }
 .login input[type="password"] {
   color: #000000;
   background-color: #ffffff;
-  border-color: #dddddd;
-  -webkit-border-radius: 4px;
-  padding: 10px 20px;
+  border-color: transparent;
+  -webkit-border-radius: 0;
+  padding: 8px 10px;
 }
 .login .button-primary {
   width: 120px;
   float: right;
-  background-color: #073e55 !important;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0154b6), to(#073e55));
-  background: -webkit-linear-gradient(top, #0154b6, #073e55);
-  background: -moz-linear-gradient(top, #0154b6, #073e55);
-  background: -ms-linear-gradient(top, #0154b6, #073e55);
-  background: -o-linear-gradient(top, #0154b6, #073e55);
-  background-image: -ms-linear-gradient(top, #0154b6 0%, #073e55 100%);
+  background: none #650000 !important;
   color: #ffffff;
-  -webkit-border-radius: 4px;
-  border: 1px solid #032634;
+  text-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 0px;
+  border: 0;
 }
 .login .button-primary:hover {
-  background-color: #073e55 !important;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0154b6), to(#032634));
-  background: -webkit-linear-gradient(top, #0154b6, #032634);
-  background: -moz-linear-gradient(top, #0154b6, #032634);
-  background: -ms-linear-gradient(top, #0154b6, #032634);
-  background: -o-linear-gradient(top, #0154b6, #032634);
-  background-image: -ms-linear-gradient(top, #0154b6 0%, #032634 100%);
-  color: #fff;
-  -webkit-border-radius: 4px;
-  border: 1px solid #032634;
+  background: none #650000 !important;
+  color: #ffffff;
+  -webkit-border-radius: 0px;
+  text-shadow: none;
+  box-shadow: none;
+  border: 0;
 }
 .login .button-primary:active {
-  background-color: #073e55 !important;
-  background: -webkit-gradient(linear, left top, left bottom, from(#0154b6), to(#073e55));
-  background: -webkit-linear-gradient(top, #0154b6, #073e55);
-  background: -moz-linear-gradient(top, #0154b6, #073e55);
-  background: -ms-linear-gradient(top, #0154b6, #073e55);
-  background: -o-linear-gradient(top, #0154b6, #073e55);
-  background-image: -ms-linear-gradient(top, #0154b6 0%, #073e55 100%);
-  color: #fff;
-  -webkit-border-radius: 4px;
-  border: 1px solid #032634;
+  background: none #650000 !important;
+  color: #ffffff;
+  -webkit-border-radius: 0px;
+  text-shadow: none;
+  box-shadow: none;
+  border: 0;
 }
 .login label {
   color: #000000;
   font-weight: 400;
-  font-size: 15px;
+  font-size: .8rem;
   letter-spacing: -0.5px;
-  line-height: 25px;
+  line-height: 1.5rem;
   margin-bottom: 10px;
   display: block;
   width: 100%;
 }
+.login .login #nav {
+  margin: 20px 0 0;
+}
 .login #backtoblog a,
 .login #nav a {
   text-decoration: none;
-  color: #0154b6;
+  color: #ffffff;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 10px;
+  font-size: .8rem;
+  line-height: 1rem;
 }
-.wp-admin .postbox .hndle {
-  background-color: #0154b6;
+/* --------------------------------------------------------------
+CUSTOM CSS FOR ADMIN
+-------------------------------------------------------------- */
+#adminmenu .toplevel_page_sombras-admin {
+  background: #650000 !important;
+}
+#adminmenu .toplevel_page_sombras-admin:nth-child(1) a {
   color: #ffffff;
 }
-.wp-admin .postbox .toggle-indicator {
+#adminmenu .toplevel_page_sombras-admin:nth-child(1) a:hover {
   color: #ffffff;
 }
-.wp-admin .custom-metabox-headline {
-  background: #0154b6;
-  padding: 5px 15px;
+#adminmenu .toplevel_page_sombras-admin img {
+  max-width: 20px;
+  margin-top: -2px;
 }
-.wp-admin .custom-metabox-headline h2 {
-  color: #ffffff;
+body.toplevel_page_sombras-admin {
+  background: #383838;
 }
-.wp-admin #footer-thankyou a {
-  color: #0154b6;
-  font-weight: 500;
-  text-decoration: none;
-}
-.wp-admin #footer-thankyou a:hover {
-  color: #0154b6;
-}
-.toplevel_page_sombras_custom_options .custom-clearfix {
-  clear: both;
-  float: none;
-}
-.toplevel_page_sombras_custom_options #wpcontent {
+body.toplevel_page_sombras-admin #wpcontent {
   padding-left: 0;
 }
-.toplevel_page_sombras_custom_options #wpcontent .sombras_custom_options-header {
-  background: #808080;
-  border-bottom: 1px solid black;
-  padding: 20px;
+body.toplevel_page_sombras-admin .sombras-admin-header {
+  background: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
 }
-.toplevel_page_sombras_custom_options #wpcontent .sombras_custom_options-header .logo-header {
-  max-height: 90px;
-  float: right;
-}
-.toplevel_page_sombras_custom_options #wpcontent .sombras_custom_options-header h1 {
-  float: left;
-  margin-top: 2.5%;
+body.toplevel_page_sombras-admin .sombras-admin-header h2 {
   color: #ffffff;
+  font-weight: 300;
 }
-.toplevel_page_sombras_custom_options #wpcontent .sombras_custom_options-content {
-  padding: 5px 20px;
+body.toplevel_page_sombras-admin .sombras-admin-body {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+body.toplevel_page_sombras-admin .sombras-admin-body .sombras-admin-body-column {
+  align-self: center;
+}
+body.toplevel_page_sombras-admin .sombras-admin-body h3 {
+  color: #ffffff;
+  font-weight: 600;
 }

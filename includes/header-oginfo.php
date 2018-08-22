@@ -8,19 +8,19 @@
 <?php if(is_single()) : $the_slug = $clean_url; $args=array('name' => $the_slug, 'posts_per_page' => 1); $my_posts = get_posts( $args ); ?>
 <?php if( $my_posts ) { $terms = get_the_terms( $my_posts[0]->ID, 'post_tag' ); if ( $terms && ! is_wp_error( $terms ) ) : $draught_links = array(); ?>
 <?php foreach ( $terms as $term ) { $draught_links[] = $term->name; } $on_draught = join( ", ", $draught_links ); endif;
-                       echo '<meta name="keywords" content="KEYWORDS , '. $on_draught .'" />'; } ?>
+                       echo '<meta name="keywords" content="Clases de Danza, tribal fusión dark, clases de dark fusión, '. $on_draught .'" />'; } ?>
 <?php endif; ?>
-<?php if (is_home() || is_page() ) { echo '<meta name="keywords" content="KEYWORDS" />'; } ?>
+<?php if (is_home() || is_page() ) { echo '<meta name="keywords" content="Clases de Danza, tribal fusión dark, clases de dark fusión" />'; } ?>
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@USERNAME_TWITTER" />
-<meta name="twitter:creator" content="@USERNAME_TWITTER" />
+<meta name="twitter:site" content="@sombrastribal" />
+<meta name="twitter:creator" content="@sombrastribal" />
 <meta property='fb:admins' content='100000133943608' />
-<meta property="fb:app_id" content="FACEBOOK_APPID" />
+<meta property="fb:app_id" content="1468024229926879" />
 <meta property="og:title" content="<?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>" />
-<meta property="og:site_name" content="sombras" />
+<meta property="og:site_name" content="Sombras - Escuela de Danzas C.A." />
 <meta property="og:type" content="article" />
 <meta property="og:locale" content="es_ES" />
-<meta property="og:url" content="<?php if(is_single()) { the_permalink(); } else { echo 'DIRECCION_sombras'; }?>" />
+<meta property="og:url" content="<?php if(is_single()) { the_permalink(); } else { echo 'https://sombrasarmy.com'; }?>" />
 <?php if(is_single()) : $the_slug = $clean_url; $args=array('name' => $the_slug, 'posts_per_page' => 1); $my_posts = get_posts( $args ); ?>
 <?php if( $my_posts ) { $excerpt = $my_posts[0]->post_excerpt; echo '<meta property="og:description" content="' . htmlentities($excerpt, ENT_QUOTES, 'UTF-8') . '" />'; } ?>
 <?php endif; ?>
