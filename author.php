@@ -48,8 +48,8 @@
             </div>
             <?php else: ?>
             <article>
-                <h2><?php _e('Disculpe, su busqueda no arrojo ningun resultado', 'PROYECTO'); ?></h2>
-                <h3><?php _e('Dirígete nuevamente al', 'PROYECTO'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'PROYECTO'); ?>"><?php _e('inicio', 'PROYECTO'); ?></a>.</h3>
+                <h2><?php _e('Disculpe, su busqueda no arrojo ningun resultado', 'sombras'); ?></h2>
+                <h3><?php _e('Dirígete nuevamente al', 'sombras'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'sombras'); ?>"><?php _e('inicio', 'sombras'); ?></a>.</h3>
             </article>
             <?php endif; ?>
         </section>

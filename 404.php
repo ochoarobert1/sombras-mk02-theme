@@ -9,9 +9,9 @@
                 </figure>
                 <div class="clearfix"></div>
                 <div class="col-lg-5 col-lg-offset-3 col-md-5 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
-                    <h1 class="text-center"><?php _e('Error 404', 'PROYECTO'); ?></h1>
+                    <h1 class="text-center"><?php _e('Error 404', 'sombras'); ?></h1>
                     <hr>
-                    <h4 class="text-center"><?php _e('No podemos encontrar la página que buscas. Dirígete nuevamente al', 'PROYECTO'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'PROYECTO'); ?>"><?php _e('inicio', 'PROYECTO'); ?></a>.</h4>
+                    <h4 class="text-center"><?php _e('No podemos encontrar la página que buscas. Dirígete nuevamente al', 'sombras'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'sombras'); ?>"><?php _e('inicio', 'sombras'); ?></a>.</h4>
                 </div>
                 <div class="clearfix"></div>
             </article>

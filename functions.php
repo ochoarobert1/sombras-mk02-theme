@@ -66,7 +66,7 @@ require_once('includes/class-required-plugins.php');
     ADD THEME SUPPORT
 -------------------------------------------------------------- */
 
-load_theme_textdomain( 'PROYECTO', get_template_directory() . '/languages' );
+load_theme_textdomain( 'sombras', get_template_directory() . '/languages' );
 add_theme_support( 'post-formats', array( 'aside', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio' ));
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'automatic-feed-links' );
@@ -86,30 +86,30 @@ add_theme_support( 'custom-background',
 /* --------------------------------------------------------------
     ADD CUSTOM EDITOR STYLE
 -------------------------------------------------------------- */
-function PROYECTO_add_editor_styles() {
+function sombras_add_editor_styles() {
     add_editor_style( get_stylesheet_directory_uri() . '/css/editor-styles.css' );
 }
-add_action( 'admin_init', 'PROYECTO_add_editor_styles' );
+add_action( 'admin_init', 'sombras_add_editor_styles' );
 
 /* --------------------------------------------------------------
     ADD NAV MENUS LOCATIONS
 -------------------------------------------------------------- */
 
 register_nav_menus( array(
-    'header_menu' => __( 'Menu Header - Principal', 'PROYECTO' ),
-    'footer_menu' => __( 'Menu Footer - Principal', 'PROYECTO' ),
+    'header_menu' => __( 'Menu Header - Principal', 'sombras' ),
+    'footer_menu' => __( 'Menu Footer - Principal', 'sombras' ),
 ) );
 
 /* --------------------------------------------------------------
     ADD DYNAMIC SIDEBAR SUPPORT
 -------------------------------------------------------------- */
 
-add_action( 'widgets_init', 'PROYECTO_widgets_init' );
-function PROYECTO_widgets_init() {
+add_action( 'widgets_init', 'sombras_widgets_init' );
+function sombras_widgets_init() {
     register_sidebar( array(
-        'name' => __( 'Sidebar Principal', 'PROYECTO' ),
+        'name' => __( 'Sidebar Principal', 'sombras' ),
         'id' => 'main_sidebar',
-        'description' => __( 'Estos widgets seran vistos en las entradas y páginas del sitio', 'PROYECTO' ),
+        'description' => __( 'Estos widgets seran vistos en las entradas y páginas del sitio', 'sombras' ),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget'  => '</li>',
         'before_title'  => '<h2 class="widgettitle">',
@@ -117,9 +117,9 @@ function PROYECTO_widgets_init() {
     ) );
 
     //    register_sidebar( array(
-    //        'name' => __( 'Shop Sidebar', 'PROYECTO' ),
+    //        'name' => __( 'Shop Sidebar', 'sombras' ),
     //        'id' => 'shop_sidebar',
-    //        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'PROYECTO' ),
+    //        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'sombras' ),
     //        'before_widget' => '<li id="%1$s" class="widget %2$s">',
     //        'after_widget'  => '</li>',
     //        'before_title'  => '<h2 class="widgettitle">',
@@ -142,10 +142,10 @@ add_action('login_head', 'custom_login_logo');
 if (! function_exists('dashboard_footer') ){
     function dashboard_footer() {
         echo '<span id="footer-thankyou">';
-        _e ('Gracias por crear con ', 'PROYECTO' );
+        _e ('Gracias por crear con ', 'sombras' );
         echo '<a href="http://wordpress.org/" target="_blank">WordPress.</a> - ';
-        _e ('Tema desarrollado por ', 'PROYECTO' );
-        echo '<a href="http://robertochoa.com.ve/?utm_source=footer_admin&utm_medium=link&utm_content=PROYECTO" target="_blank">Robert Ochoa</a></span>';
+        _e ('Tema desarrollado por ', 'sombras' );
+        echo '<a href="http://robertochoa.com.ve/?utm_source=footer_admin&utm_medium=link&utm_content=sombras" target="_blank">Robert Ochoa</a></span>';
     }
 }
 add_filter('admin_footer_text', 'dashboard_footer');

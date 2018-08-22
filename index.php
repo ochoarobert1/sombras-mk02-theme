@@ -2,7 +2,7 @@
 <main class="container" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
     <div class="row">
         <section class="col">
-            <h1><?php _e('Ultimas Entradas', 'PROYECTO'); ?></h1>
+            <h1><?php _e('Ultimas Entradas', 'sombras'); ?></h1>
             <hr>
             <div class="row">
                 <div class="col-9">
@@ -47,8 +47,8 @@
             </div>
             <?php else: ?>
             <article>
-                <h2><?php _e('Disculpe, su busqueda no arrojo ningun resultado', 'PROYECTO'); ?></h2>
-                <h3><?php _e('Dirígete nuevamente al', 'PROYECTO'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'PROYECTO'); ?>"><?php _e('inicio', 'PROYECTO'); ?></a>.</h3>
+                <h2><?php _e('Disculpe, su busqueda no arrojo ningun resultado', 'sombras'); ?></h2>
+                <h3><?php _e('Dirígete nuevamente al', 'sombras'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'sombras'); ?>"><?php _e('inicio', 'sombras'); ?></a>.</h3>
             </article>
             <?php endif; ?>
         </section>

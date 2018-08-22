@@ -17,10 +17,10 @@
 <meta property='fb:admins' content='100000133943608' />
 <meta property="fb:app_id" content="FACEBOOK_APPID" />
 <meta property="og:title" content="<?php bloginfo('name'); ?> | <?php is_front_page() ? bloginfo('description') : wp_title(''); ?>" />
-<meta property="og:site_name" content="PROYECTO" />
+<meta property="og:site_name" content="sombras" />
 <meta property="og:type" content="article" />
 <meta property="og:locale" content="es_ES" />
-<meta property="og:url" content="<?php if(is_single()) { the_permalink(); } else { echo 'DIRECCION_PROYECTO'; }?>" />
+<meta property="og:url" content="<?php if(is_single()) { the_permalink(); } else { echo 'DIRECCION_sombras'; }?>" />
 <?php if(is_single()) : $the_slug = $clean_url; $args=array('name' => $the_slug, 'posts_per_page' => 1); $my_posts = get_posts( $args ); ?>
 <?php if( $my_posts ) { $excerpt = $my_posts[0]->post_excerpt; echo '<meta property="og:description" content="' . htmlentities($excerpt, ENT_QUOTES, 'UTF-8') . '" />'; } ?>
 <?php endif; ?>

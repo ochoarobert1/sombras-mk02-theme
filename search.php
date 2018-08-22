@@ -2,7 +2,7 @@
 <main class="container" role="main">
     <div class="row">
         <section class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h1><?php echo sprintf( __( '%s Search Results for ', 'PROYECTO' ), $wp_query->found_posts ); echo esc_attr(get_search_query()); ?></h1>
+            <h1><?php echo sprintf( __( '%s Search Results for ', 'sombras' ), $wp_query->found_posts ); echo esc_attr(get_search_query()); ?></h1>
             <hr>
             <div class="col-xl-9 col-md-9 col-sm-9 col-12">
                 <?php $defaultatts = array('class' => 'img-fluid', 'itemprop' => 'image'); ?>
@@ -42,8 +42,8 @@
             </div>
             <?php else: ?>
             <article>
-                <h2><?php _e('Disculpe, su busqueda no arrojo ningun resultado', 'PROYECTO'); ?></h2>
-                <h3><?php _e('Dirígete nuevamente al', 'PROYECTO'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'PROYECTO'); ?>"><?php _e('inicio', 'PROYECTO'); ?></a>.</h3>
+                <h2><?php _e('Disculpe, su busqueda no arrojo ningun resultado', 'sombras'); ?></h2>
+                <h3><?php _e('Dirígete nuevamente al', 'sombras'); ?> <a href="<?php echo home_url('/'); ?>" title="<?php _e('Volver al Inicio', 'sombras'); ?>"><?php _e('inicio', 'sombras'); ?></a>.</h3>
             </article>
             <?php endif; ?>
         </section>

@@ -1,7 +1,7 @@
 <?php
-add_filter( 'rwmb_meta_boxes', 'proyecto_metabox' );
+add_filter( 'rwmb_meta_boxes', 'sombras_metabox' );
 
-function proyecto_metabox( $meta_boxes )
+function sombras_metabox( $meta_boxes )
 {
     $prefix = 'rw_';
 

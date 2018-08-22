@@ -127,27 +127,27 @@ CUSTOM LOGIN OVERRIDE
 .wp-admin #footer-thankyou a:hover {
   color: #0154b6;
 }
-.toplevel_page_PROYECTO_custom_options .custom-clearfix {
+.toplevel_page_sombras_custom_options .custom-clearfix {
   clear: both;
   float: none;
 }
-.toplevel_page_PROYECTO_custom_options #wpcontent {
+.toplevel_page_sombras_custom_options #wpcontent {
   padding-left: 0;
 }
-.toplevel_page_PROYECTO_custom_options #wpcontent .PROYECTO_custom_options-header {
+.toplevel_page_sombras_custom_options #wpcontent .sombras_custom_options-header {
   background: #808080;
   border-bottom: 1px solid black;
   padding: 20px;
 }
-.toplevel_page_PROYECTO_custom_options #wpcontent .PROYECTO_custom_options-header .logo-header {
+.toplevel_page_sombras_custom_options #wpcontent .sombras_custom_options-header .logo-header {
   max-height: 90px;
   float: right;
 }
-.toplevel_page_PROYECTO_custom_options #wpcontent .PROYECTO_custom_options-header h1 {
+.toplevel_page_sombras_custom_options #wpcontent .sombras_custom_options-header h1 {
   float: left;
   margin-top: 2.5%;
   color: #ffffff;
 }
-.toplevel_page_PROYECTO_custom_options #wpcontent .PROYECTO_custom_options-content {
+.toplevel_page_sombras_custom_options #wpcontent .sombras_custom_options-content {
   padding: 5px 20px;
 }

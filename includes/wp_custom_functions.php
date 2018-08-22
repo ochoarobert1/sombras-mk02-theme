@@ -1,16 +1,16 @@
 <?php
 /** FUNCION PARA COLOCAR TIEMPO EN ENTRADAS **/
-function PROYECTO_time_ago() {
+function sombras_time_ago() {
     global $post;
     $date = get_post_time('G', true, $post);
     $chunks = array(
-        array( 60 * 60 * 24 * 365 , __( 'año', 'PROYECTO' ), __( 'años', 'PROYECTO' ) ),
-        array( 60 * 60 * 24 * 30 , __( 'mes', 'PROYECTO' ), __( 'meses', 'PROYECTO' ) ),
-        array( 60 * 60 * 24 * 7, __( 'semana', 'PROYECTO' ), __( 'semanas', 'PROYECTO' ) ),
-        array( 60 * 60 * 24 , __( 'dia', 'PROYECTO' ), __( 'dias', 'PROYECTO' ) ),
-        array( 60 * 60 , __( 'hora', 'PROYECTO' ), __( 'horas', 'PROYECTO' ) ),
-        array( 60 , __( 'minuto', 'PROYECTO' ), __( 'minutos', 'PROYECTO' ) ),
-        array( 1, __( 'segundo', 'PROYECTO' ), __( 'segundos', 'PROYECTO' ) )
+        array( 60 * 60 * 24 * 365 , __( 'año', 'sombras' ), __( 'años', 'sombras' ) ),
+        array( 60 * 60 * 24 * 30 , __( 'mes', 'sombras' ), __( 'meses', 'sombras' ) ),
+        array( 60 * 60 * 24 * 7, __( 'semana', 'sombras' ), __( 'semanas', 'sombras' ) ),
+        array( 60 * 60 * 24 , __( 'dia', 'sombras' ), __( 'dias', 'sombras' ) ),
+        array( 60 * 60 , __( 'hora', 'sombras' ), __( 'horas', 'sombras' ) ),
+        array( 60 , __( 'minuto', 'sombras' ), __( 'minutos', 'sombras' ) ),
+        array( 1, __( 'segundo', 'sombras' ), __( 'segundos', 'sombras' ) )
     );
     if ( !is_numeric( $date ) ) {
         $time_chunks = explode( ':', str_replace( ' ', ':', $date ) );
@@ -21,7 +21,7 @@ function PROYECTO_time_ago() {
     $newer_date = time( );
     $since = $newer_date - $date;
     if ( 0 > $since )
-        return __(  ' un momento', 'PROYECTO' );
+        return __(  ' un momento', 'sombras' );
     for ( $i = 0, $j = count($chunks); $i < $j; $i++) {
         $seconds = $chunks[$i][0];
         if ( ( $count = floor($since / $seconds) ) != 0 )
@@ -29,7 +29,7 @@ function PROYECTO_time_ago() {
     }
     $output = ( 1 == $count ) ? '1 '. $chunks[$i][1] : $count . ' ' . $chunks[$i][2];
     if ( !(int)trim($output) ){
-        $output = '0 ' . __( 'segundos', 'PROYECTO' );
+        $output = '0 ' . __( 'segundos', 'sombras' );
     }
     return $output;
 }

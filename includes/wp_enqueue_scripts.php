@@ -1,5 +1,5 @@
 <?php
-function proyecto_load_js() {
+function sombras_load_js() {
     $version_remove = NULL;
     if (!is_admin()){
         if ($_SERVER['REMOTE_ADDR'] == '::1') {
@@ -118,4 +118,4 @@ function proyecto_load_js() {
     }
 }
 
-add_action('init', 'proyecto_load_js');
+add_action('init', 'sombras_load_js');
