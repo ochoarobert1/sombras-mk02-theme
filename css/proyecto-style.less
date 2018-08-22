@@ -1,0 +1,74 @@
+/* --------------------------------------------------------------
+/* MAIN LESS MIXINS AND FUNCTIONS - LESSHAT
+-------------------------------------------------------------- */
+@import 'less/lesshat.less';
+/* --------------------------------------------------------------
+/* WordPress Core
+-------------------------------------------------------------- */
+@import 'less/wordpress-core.less';
+/* --------------------------------------------------------------
+/* Shortcodes Ultimate Custom - ACTIVATE ONLY IF USED
+-------------------------------------------------------------- */
+//@import 'less/shortcodes-ultimate-custom.less';
+/* --------------------------------------------------------------
+Variables
+-------------------------------------------------------------- */
+/* Pixels */
+@1: 1px;
+@2: 2px;
+@3: 3px;
+@4: 4px;
+@5: 5px;
+@10: (@5 + @5);
+@15: (@10 + @5);
+@20: (@10 + @10);
+@25: (@20 + @5);
+@30: (@15 + @15);
+/* Colors */
+@black: #000000;
+@gray3: #333333;
+@gray6: #666666;
+@gray9: #999999;
+@grayc: #cccccc;
+@grayf0: #f0f0f0;
+@white: #ffffff;
+@blue: #2B7BCB;
+@orange: #FFB12A;
+
+/* Theme commons
+-------------------------------------------------------------- */
+.loading:empty {
+    background: url('../images/common/loading.gif') no-repeat center center;
+    min-height: 32px;
+    min-width: 32px;
+}
+
+@import 'less/layouts.less';
+
+/* --------------------------------------------------------------
+Body default
+-------------------------------------------------------------- */
+html, body { height: 100%; }
+
+body {
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    .transition(all .2s ease-in-out);
+
+    &:hover { text-decoration: none; }
+}
+
+.table-custom {
+    border: 0;
+}
+
+.table-custom th {
+    border: 0;
+}
+
+.table-custom td {
+    border: 0;
+}
