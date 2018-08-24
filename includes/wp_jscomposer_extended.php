@@ -2,16 +2,17 @@
 class VCExtendAddonClass {
 
     function __construct() {
-        // We safely integrate with VC with this hook
+        // HOOK FOR VC
         add_action( 'init', array( $this, 'integrateWithVC' ) );
 
-        // Use this when creating a shortcode addon
-        add_shortcode( 'product_woocommerce_custom', array( $this, 'renderProductCustom' ) );
+        // CREATING SHORTCODE
+        add_shortcode( 'sombras_blog_grid', array( $this, 'render_sombras_blog_grid' ) );
 
-        add_shortcode( 'casos_custom', array( $this, 'renderCasos' ) );
+        // CREATING SHORTCODE
+        add_shortcode( 'sombras_media_grid', array( $this, 'render_sombras_media_grid' ) );
 
         // Register CSS and JS
-        //        add_action( 'wp_enqueue_scripts', array( $this, 'loadCssAndJs' ) );
+        // add_action( 'wp_enqueue_scripts', array( $this, 'loadCssAndJs' ) );
     }
 
     public function integrateWithVC() {
@@ -22,131 +23,121 @@ class VCExtendAddonClass {
             return;
         }
 
-        /*
-        Add your WPBakery Page Builder logic here.
-        Lets call vc_map function to "register" our custom shortcode within WPBakery Page Builder interface.
-
-        More info: http://kb.wpbakery.com/index.php?title=Vc_map
-        */
-
-        /* GET PRODUCTS */
-        $products_array = array();
-        $args = array('post_type' => 'product', 'posts_per_page' => -1);
-        query_posts($args);
-        $i = 0;
-        while (have_posts()) : the_post();
-        $products_array[get_the_title()] = get_the_ID();
-        endwhile;
-        wp_reset_query();
-        /* GET PRODUCTS */
-
+        /* WPBakery Logic Script */
         vc_map( array(
-            "name" => __("Producto Woocommerce - Escalonado", 'redkraniet'),
-            "description" => __("Shortcode para insertar productos escalonados", 'redkraniet'),
-            "base" => "product_woocommerce_custom",
-            "class" => "",
-            "controls" => "full",
-            "icon" => get_template_directory_uri() . '/images/logo-composer.png', // or css class name which you can reffer in your css file later. Example: "redkraniet_my_class"
-            "category" => __('Content', 'js_composer'),
-            //'admin_enqueue_js' => array(plugins_url('assets/redkraniet.js', __FILE__)), // This will load js file in the VC backend editor
-            //'admin_enqueue_css' => array(plugins_url('assets/redkraniet_admin.css', __FILE__)), // This will load css file in the VC backend editor
-            "params" => array(
+            'name' => __('Sombras - Grilla del Blog Especial', 'sombras'),
+            'description' => __('Shortcode para insertar entradas escalonados', 'sombras'),
+            'base' => 'sombras_blog_grid',
+            'class' => '',
+            'controls' => 'full',
+            'icon' => get_template_directory_uri() . '/images/logo.png',
+            'category' => __('Content', 'js_composer'),
+            'params' => array(
                 array(
-                    "type" => "number",
-                    "holder" => "div",
-                    "class" => "",
-                    "heading" => __('Cantidad de Entradas', 'redkraniet'),
-                    "param_name" => "entry_quantity",
-                    "value" => '',
-                    "description" => __("Titulo del Producto.", 'redkraniet')
+                    'type' => 'posttypes',
+                    'holder' => 'div',
+                    'class' => '',
+                    'heading' => __( 'Seleccione Tipo de Entrada', 'sombras' ),
+                    'description' => __( 'Seleccione el tipo de entrada a colocar en grilla.', 'sombras' ),
+                    'param_name' => 'post_type_selection'
                 ),
                 array(
-                    'type' => 'dropdown',
-                    "holder" => "div",
-                    "class" => "",
-                    'heading' => __( 'Seleccione Producto', 'redkraniet' ),
-                    'description' => __( 'Seleccione el producto a colocar.', 'redkraniet' ),
-                    'param_name' => 'product_selection',
-                    'value' => $products_array,
-                ),
-                array(
-                    "type" => "textarea_html",
-                    "holder" => "div",
-                    "class" => "",
-                    "heading" => __("Descripción del Producto", 'redkraniet'),
-                    "param_name" => "content",
-                    "value" => __("<p>Esta es la Descripción del Producto.</p>", 'redkraniet'),
-                    "description" => __("Ingrese el contenido.", 'redkraniet')
-                ),
-
-                array(
-                    'type' => 'checkbox',
-                    "holder" => "div",
-                    "class" => "",
-                    'heading' => __( '¿Invertir zona?', 'js_composer' ),
-                    'param_name' => 'invert_div',
-                    "description" => __("Seleccione si desea invertir el orden del contenedor del proyecto (Imagen / Descripción)", 'redkraniet')
-                ),
-
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => '',
+                    'heading' => __('Cantidad de Entradas', 'sombras'),
+                    'param_name' => 'entry_quantity',
+                    'value' => '',
+                    'description' => __('Inserte la cantidad de entradas a colocar en esta zona.', 'sombras')
+                )
             )
         ) );
 
+        /* WPBakery Logic Script */
+        vc_map( array(
+            'name' => __('Sombras - Grilla en Lista Especial', 'sombras'),
+            'description' => __('Shortcode para insertar entradas listados', 'sombras'),
+            'base' => 'sombras_media_grid',
+            'class' => '',
+            'controls' => 'full',
+            'icon' => get_template_directory_uri() . '/images/logo.png',
+            'category' => __('Content', 'js_composer'),
+            'params' => array(
+                array(
+                    'type' => 'posttypes',
+                    'holder' => 'div',
+                    'class' => '',
+                    'heading' => __( 'Seleccione Tipo de Entrada', 'sombras' ),
+                    'description' => __( 'Seleccione el tipo de entrada a colocar en grilla.', 'sombras' ),
+                    'param_name' => 'post_type_selection'
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => '',
+                    'heading' => __('Cantidad de Entradas', 'sombras'),
+                    'param_name' => 'entry_quantity',
+                    'value' => '',
+                    'description' => __('Inserte la cantidad de entradas a colocar en esta zona.', 'sombras')
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => '',
+                    'heading' => __('Cantidad de Entradas a Saltar', 'sombras'),
+                    'param_name' => 'skip_quantity',
+                    'value' => '',
+                    'description' => __('Inserte la cantidad de entradas que deben saltarse (Util para colocar elementos anteriores al más reciente).', 'sombras')
+                ),
+            )
+        ) );
     }
 
-    /*
-    Shortcode logic how it should be rendered
-    */
-    public function renderProductCustom( $atts, $content = null ) {
-        extract( shortcode_atts( array(
-            'product_title' => 'product_title',
-            'product_selection' => 'product_selection',
-            'invert_div' => 'invert_div'
-        ), $atts ) );
-        $content = wpb_js_remove_wpautop($content, true); // fix unclosed/unwanted paragraph tags in $content
-        $image = wp_get_attachment_image_src( $proyect_image, 'full' );
-        $image_url = $image[0];
-        $product = get_post($product_selection);
-        $image = get_the_post_thumbnail_url($product->ID, 'full');
-        $link = get_permalink($product->ID);
+    /* Shortcode logic how it should be rendered */
+    public function render_sombras_blog_grid( $atts, $content = null ) {
+        extract( shortcode_atts( array( 'entry_quantity' => 'entry_quantity', 'post_type_selection' => 'post_type_selection' ), $atts ) );
+        $output = '';
+        $custom_loop = new WP_Query(array('posts_per_page' => $entry_quantity, 'post_type' => $post_type_selection));
+        $output .= '<div class="container p-0"><div class="row sombras-custom-grid">';
 
+        while ($custom_loop->have_posts()) : $custom_loop->the_post();
+        $output .= '<div class="sombras-custom-grid-item col"><a href="'. get_permalink() .'" title="'. get_the_title() .'">' . get_the_post_thumbnail(get_the_ID(), "full", array("class" => "img-fluid")). '</a><h2>'. get_the_title() .'</h2></div>';
+        endwhile;
+        wp_reset_query();
 
-        if ($invert_div === 'true') {
-            $output = "<div class='container p-0'><div class='row product-custom-container'><div class='product-custom-content col-12'><h2>{$product_title}</h2><p>{$content}</p><a class='btn btn-md btn-product-custom' href='{$link}'>buy Now</a></div><div class='product-custom-picture col-12'><img src='{$image}' class='img-fluid'/></div></div></div>";
-        } else {
-            $output = "<div class='container p-0'><div class='row product-custom-container'><div class='product-custom-content col-12'><h2>{$product_title}</h2><p>{$content}</p><a class='btn btn-md btn-product-custom' href='{$link}'>buy Now</a></div><div class='product-custom-picture col-12'><img src='{$image}' class='img-fluid'/></div></div></div>";
-        }
+        $output .= '</div></div>';
         return $output;
     }
 
-    public function renderCasos( $atts, $content = null ) {
-        extract( shortcode_atts( array(
-            'casos_title' => 'casos_title',
-            'casos_desc' => 'casos_desc',
-            'casos_image' => 'casos_image',
-            'casos_video' => 'casos_video',
-        ), $atts ) );
+    /* Shortcode logic how it should be rendered */
+    public function render_sombras_media_grid( $atts, $content = null ) {
+        extract( shortcode_atts( array( 'entry_quantity' => 'entry_quantity', 'skip_quantity' => 'skip_quantity', 'post_type_selection' => 'post_type_selection' ), $atts ) );
 
-        $image = wp_get_attachment_image_src( $casos_image, 'full' );
-        $image_url = $image[0];
-        $btn_img = get_template_directory_uri() . "/images/play-btn.png";
+        if ($skip_quantity == '') { $skip_quantity = 0; }
+        $output = '';
+        $custom_loop = new WP_Query(array('posts_per_page' => $entry_quantity, 'post_type' => $post_type_selection, 'offset' => $skip_quantity));
+        $output .= '<ul class="list-unstyled">';
 
-        $casos_title_id = sanitize_title($casos_title);
+        while ($custom_loop->have_posts()) : $custom_loop->the_post();
+        $output .= ' <li class="media"><a href="'. get_permalink() .'" title="'. get_the_title() .'">' . get_the_post_thumbnail(get_the_ID(), "avatar", array("class" => "mr-3 media-custom-image")). '</a><div class="media-body"></a><h5 class="mt-0 mb-1">'. get_the_title() .'</h5></div></li>';
+        endwhile;
+        wp_reset_query();
 
-        $output = "<div id='{$casos_title_id}' data-video='{$casos_video}' class='casos-custom-item' style='background: url({$image_url});'><div class='casos-custom-content'><h2>{$casos_title}</h2><p>{$casos_desc}</p><div class='play-btn-container'><img id='{$casos_title_id}' src='{$btn_img}' alt='play video' class='img-fluid img-play-btn play-modal' /></div></div></div>";
-
+        $output .= '</ul>';
         return $output;
     }
 
-    //    /*
-    //    Load plugin css and javascript files which you may need on front end of your site
-    //    */
+
+
+    /* Load plugin css and javascript files which you may need on front end of your site */
     //    public function loadCssAndJs() {
-    //        wp_register_style( 'redkraniet_style', plugins_url('assets/redkraniet.css', __FILE__) );
-    //        wp_enqueue_style( 'redkraniet_style' );
+    //        wp_register_style( 'sombras_style', plugins_url('assets/sombras.css', __FILE__) );
+    //        wp_enqueue_style( 'sombras_style' );
     //
     //        // If you need any javascript files on front end, here is how you can load them.
-    //        //wp_enqueue_script( 'redkraniet_js', plugins_url('assets/redkraniet.js', __FILE__), array('jquery') );
+    //        //wp_enqueue_script( 'sombras_js', plugins_url('assets/sombras.js', __FILE__), array('jquery') );
     //    }
 }
+
 // Finally initialize code
 new VCExtendAddonClass();
