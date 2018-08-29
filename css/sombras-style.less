@@ -7,7 +7,7 @@
 /* WordPress Core
 -------------------------------------------------------------- */
 
-@import 'less/wordpress-core.less';
+//@import 'less/wordpress-core.less';
 /* --------------------------------------------------------------
 /* Shortcodes Ultimate Custom - ACTIVATE ONLY IF USED
 -------------------------------------------------------------- */
@@ -103,6 +103,16 @@ a {
             }
         }
     }
+}
+
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
 }
 
 .lang-selector {
@@ -225,16 +235,141 @@ a {
 /* --------------------------------------------------------------
 4.- CURSOS - DISCIPLINAS
 -------------------------------------------------------------- */
+
 .disciplinas-item {
     text-align: center;
+
+    & h3 {
+        font-weight: 600;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: -.8px;
+    }
+
+    & a {
+        color: @black;
+    }
+
     & img {
         max-width: 160px;
+        .transition(all .3s ease-in-out);
     }
+
+    &:hover {
+        & img {
+            .transform(scale(.9));
+        }
+        & a {
+            color: @red;
+        }
+    }
+}
+
+.disciplinas-container {
+    padding: 1rem 0;
+    padding-bottom: 2rem;
+
+    & h2 {
+        font-weight: 300;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+    }
+}
+
+.disciplina-video-container  {
+    padding: 1rem 0;
+    padding-bottom: 2rem;
+}
+
+.disciplina-video-item {
+    & .disciplina-video-item-wrapper {
+        box-shadow: 0 0 16px #dedede;
+        .transition(all .3s ease-in-out);
+
+        &:hover {
+            box-shadow: 0 0 16px #a8a8a8;
+
+            & .disciplina-video-item-img-wrapper {
+                opacity: 1;
+            }
+        }
+    }
+
+    & .disciplina-video-item-info {
+        padding: 1rem;
+        font-size: .95rem;
+        letter-spacing: -.5px;
+
+        & h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -.5px;
+        }
+
+        & h5 {
+            font-size: .9rem;
+            line-height: 1.2rem;
+            letter-spacing: 0;
+        }
+        & a {
+            color: @black;
+        }
+    }
+
+    & .disciplina-video-item-img {
+        position: relative;
+
+
+        & .disciplina-video-item-img-wrapper {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.75);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            .transition(all .3s ease-in-out);
+
+            & img {
+                .transition(all .3s ease-in-out);
+                &:hover {
+                    .filter(invert(.3));
+                    .transform(scale(.8));
+                }
+            }
+        }
+    }
+
+    & .disciplina-video-item-level {
+        text-align: right;
+    }
+}
+
+.disciplina-video-item-level-wrapper {
+    & span {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        background: url(../images/sprite-umbrella.png);
+        background-size: cover;
+    }
+}
+
+.single-curso-container {
+    min-height: 40vh;
 }
 
 /* --------------------------------------------------------------
 5.- VC - OVERRIDES
 -------------------------------------------------------------- */
+
+.the-slider .vc_column-inner {
+    padding-top: 0 !important;
+}
 
 .btn-red button {
     background: none transparent !important;
@@ -294,5 +429,34 @@ a {
         line-height: 1.7rem;
         margin-bottom: 20px;
         letter-spacing: -.3px;
+    }
+}
+
+
+.custom-page-banner {
+    min-height: 30vh;
+    background-size: cover !important;
+    background-position: center center !important;
+    color: @white;
+    margin-bottom: 25px;
+    position: relative;
+
+    & .custom-page-banner-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.33);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & h1 {
+        font-size: 2.1rem;
+        font-weight: 300;
+        letter-spacing: -.5px;
+        text-shadow: 0 0 6px @black;
     }
 }

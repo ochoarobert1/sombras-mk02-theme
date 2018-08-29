@@ -5,167 +5,6 @@
 /* --------------------------------------------------------------
 /* WordPress Core
 -------------------------------------------------------------- */
-.post-content .alignnone {
-  margin: 5px 20px 20px 0;
-}
-.post-content .aligncenter {
-  display: block;
-  margin: 5px auto 5px auto;
-}
-.post-content .alignright {
-  float: right;
-  margin: 5px 0 20px 20px;
-}
-.post-content .alignleft {
-  float: left;
-  margin: 5px 20px 20px 0;
-}
-.post-content a img.alignright {
-  float: right;
-  margin: 5px 0 20px 20px;
-}
-.post-content a img.alignnone {
-  margin: 5px 20px 20px 0;
-}
-.post-content a img.alignleft {
-  float: left;
-  margin: 5px 20px 20px 0;
-}
-.post-content a img.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.post-content .wp-caption {
-  background-color: #fff;
-  border: 1px solid #f0f0f0;
-  max-width: 96%;
-  /* Image does not overflow the content area */
-  padding: 5px 3px 10px;
-  text-align: center;
-}
-.post-content .wp-caption .alignnone {
-  margin: 5px 20px 20px 0;
-}
-.post-content .wp-caption .alignleft {
-  margin: 5px 20px 20px 0;
-}
-.post-content .wp-caption .alignright {
-  margin: 5px 0 20px 20px;
-}
-.post-content .wp-caption img {
-  border: 0 none;
-  height: auto;
-  margin: 0;
-  max-width: 98.5%;
-  padding: 0;
-  width: auto;
-}
-.post-content .wp-caption .wp-caption-text {
-  font-size: 11px;
-  line-height: 17px;
-  margin: 0;
-  padding: 0 4px 5px;
-}
-.alignnone {
-  margin: 5px 20px 20px 0;
-}
-.aligncenter {
-  display: block;
-  margin: 5px auto 5px auto;
-}
-.alignright {
-  float: right;
-  margin: 5px 0 20px 20px;
-}
-.alignleft {
-  float: left;
-  margin: 5px 20px 20px 0;
-}
-a img.alignright {
-  float: right;
-  margin: 5px 0 20px 20px;
-}
-a img.alignnone {
-  margin: 5px 20px 20px 0;
-}
-a img.alignleft {
-  float: left;
-  margin: 5px 20px 20px 0;
-}
-a img.aligncenter {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.wp-caption {
-  background-color: #fff;
-  border: 1px solid #f0f0f0;
-  max-width: 96%;
-  /* Image does not overflow the content area */
-  padding: 5px 3px 10px;
-  text-align: center;
-}
-.wp-caption .alignnone {
-  margin: 5px 20px 20px 0;
-}
-.wp-caption .alignleft {
-  margin: 5px 20px 20px 0;
-}
-.wp-caption .alignright {
-  margin: 5px 0 20px 20px;
-}
-.wp-caption img {
-  border: 0 none;
-  height: auto;
-  margin: 0;
-  max-width: 98.5%;
-  padding: 0;
-  width: auto;
-}
-.wp-caption .wp-caption-text {
-  font-size: 11px;
-  line-height: 17px;
-  margin: 0;
-  padding: 0 4px 5px;
-}
-/* Text meant only for screen readers. */
-.screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
-.screen-reader-text:focus {
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  clip: auto !important;
-  color: #21759b;
-  display: block;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: bold;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000;
-  /* Above WP toolbar. */
-}
-.sticky {
-  color: #000;
-}
-.gallery-caption {
-  color: #000;
-}
-.bypostauthor {
-  color: #000;
-}
 /* --------------------------------------------------------------
 /* Shortcodes Ultimate Custom - ACTIVATE ONLY IF USED
 -------------------------------------------------------------- */
@@ -326,6 +165,13 @@ a:hover {
 .the-header .navbar .navbar-nav li .nav-link {
   color: #ffffff;
 }
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+.dropdown > .dropdown-toggle:active {
+  /*Without this, clicking will make it sticky*/
+  pointer-events: none;
+}
 .lang-selector {
   display: inline-flex;
   padding: 20px;
@@ -435,12 +281,132 @@ a:hover {
 .disciplinas-item {
   text-align: center;
 }
+.disciplinas-item h3 {
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.8px;
+}
+.disciplinas-item a {
+  color: #000000;
+}
 .disciplinas-item img {
   max-width: 160px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.disciplinas-item:hover img {
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.9);
+}
+.disciplinas-item:hover a {
+  color: #ef0d33;
+}
+.disciplinas-container {
+  padding: 1rem 0;
+  padding-bottom: 2rem;
+}
+.disciplinas-container h2 {
+  font-weight: 300;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.disciplina-video-container {
+  padding: 1rem 0;
+  padding-bottom: 2rem;
+}
+.disciplina-video-item .disciplina-video-item-wrapper {
+  box-shadow: 0 0 16px #dedede;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.disciplina-video-item .disciplina-video-item-wrapper:hover {
+  box-shadow: 0 0 16px #a8a8a8;
+}
+.disciplina-video-item .disciplina-video-item-wrapper:hover .disciplina-video-item-img-wrapper {
+  opacity: 1;
+}
+.disciplina-video-item .disciplina-video-item-info {
+  padding: 1rem;
+  font-size: .95rem;
+  letter-spacing: -0.5px;
+}
+.disciplina-video-item .disciplina-video-item-info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.disciplina-video-item .disciplina-video-item-info h5 {
+  font-size: .9rem;
+  line-height: 1.2rem;
+  letter-spacing: 0;
+}
+.disciplina-video-item .disciplina-video-item-info a {
+  color: #000000;
+}
+.disciplina-video-item .disciplina-video-item-img {
+  position: relative;
+}
+.disciplina-video-item .disciplina-video-item-img .disciplina-video-item-img-wrapper {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.disciplina-video-item .disciplina-video-item-img .disciplina-video-item-img-wrapper img {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.disciplina-video-item .disciplina-video-item-img .disciplina-video-item-img-wrapper img:hover {
+  -webkit-filter: invert(0.3);
+  -moz-filter: invert(0.3);
+  -ms-filter: invert(0.3);
+  filter: invert(0.3);
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.disciplina-video-item .disciplina-video-item-level {
+  text-align: right;
+}
+.disciplina-video-item-level-wrapper span {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background: url(../images/sprite-umbrella.png);
+  background-size: cover;
+}
+.single-curso-container {
+  min-height: 40vh;
 }
 /* --------------------------------------------------------------
 5.- VC - OVERRIDES
 -------------------------------------------------------------- */
+.the-slider .vc_column-inner {
+  padding-top: 0 !important;
+}
 .btn-red button {
   background: none transparent !important;
   border: 4px solid #ef0d33 !important;
@@ -500,4 +466,29 @@ a:hover {
   line-height: 1.7rem;
   margin-bottom: 20px;
   letter-spacing: -0.3px;
+}
+.custom-page-banner {
+  min-height: 30vh;
+  background-size: cover !important;
+  background-position: center center !important;
+  color: #ffffff;
+  margin-bottom: 25px;
+  position: relative;
+}
+.custom-page-banner .custom-page-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.33);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.custom-page-banner h1 {
+  font-size: 2.1rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 6px #000000;
 }

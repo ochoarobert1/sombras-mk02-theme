@@ -23,7 +23,7 @@ function my_jquery_enqueue() {
         /*- JQUERY ON WEB  -*/
         wp_register_script( 'jquery', 'https://code.jquery.com/jquery-3.3.1.min.js', false, '3.3.1', false);
         /*- JQUERY MIGRATE ON WEB  -*/
-        wp_register_script( 'jquery-migrate', 'http://code.jquery.com/jquery-migrate-3.0.1.min.js', array('jquery'), '3.0.1', true);
+        wp_register_script( 'jquery-migrate', 'https://code.jquery.com/jquery-migrate-3.0.1.min.js', array('jquery'), '3.0.1', true);
     }
     wp_enqueue_script('jquery');
     wp_enqueue_script('jquery-migrate');
@@ -111,7 +111,7 @@ function sombras_widgets_init() {
     register_sidebars( 4, array(
         'name'          => __('Pie de Pagina %d', 'sombras'),
         'id'            => 'sidebar_footer',
-        'description'   => __('Sección de Pie de Pagina %d', 'sombras'),
+        'description'   => __('Sección de Pie de Pagina', 'sombras'),
         'before_widget' => '<li id="%1$s" class="widget %2$s">',
         'after_widget'  => '</li>',
         'before_title'  => '<h2 class="widgettitle">',
@@ -181,6 +181,19 @@ require_once('includes/wp_custom_theme_control.php');
 require_once('includes/wp_jscomposer_extended.php');
 
 /* --------------------------------------------------------------
+    ADD CUSTOM AJAX
+-------------------------------------------------------------- */
+
+function sombras_ajax_handler(){
+    if(is_singular('cursos')){
+        wp_localize_script( 'sombras-ajax', 'admin_url', array('ajax_url' => admin_url('admin-ajax.php')));
+    }
+}
+
+add_action( 'wp_enqueue_scripts', 'sombras_ajax_handler' );
+
+
+/* --------------------------------------------------------------
     ADD CUSTOM IMAGE SIZE
 -------------------------------------------------------------- */
 if ( function_exists('add_theme_support') ) {
@@ -189,4 +202,5 @@ if ( function_exists('add_theme_support') ) {
 }
 if ( function_exists('add_image_size') ) {
     add_image_size('avatar', 64, 64, true);
+    add_image_size('service_img', 255, 384, true);
 }

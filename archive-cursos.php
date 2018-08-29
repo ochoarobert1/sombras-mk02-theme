@@ -2,15 +2,29 @@
 <main class="container-fluid p-0" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
     <div class="row no-gutters">
         <?php $page_info = get_page_by_title('archive-cursos', 'ARRAY_A', 'PAGE'); ?>
-        <section class="page-banner col-12">
-            <h1><?php echo single_term_title(); ?></h1>
-        </section>
+        <?php $images = rwmb_meta( 'st_image_banner', array( 'size' => 'full' ), $page_info['ID'] ); ?>
+        <?php if ($images) { ?>
+        <?php foreach ( $images as $image ) { $url = $image['url']; } ?>
+        <div class="custom-page-banner col-12" style="background: url(<?php echo $url; ?>);">
+            <div class="custom-page-banner-overlay">
+                <h1><?php echo get_the_archive_title(); ?></h1>
+            </div>
+        </div>
+        <?php } else { ?>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1><?php echo get_the_archive_title(); ?></h1>
+                </div>
+            </div>
+        </div>
+        <?php } ?>
         <div class="container">
             <div class="row">
                 <div class="archive-cursos-content col-12">
                     <?php echo apply_filters('the_content', $page_info['post_content']); ?>
                 </div>
-                <section class="col-12">
+                <section class="disciplinas-container col-12">
                     <h2 class="text-center"><?php _e('Disciplinas Disponibles', 'sombras'); ?></h2>
                     <?php $terms = get_terms( array( 'taxonomy' => 'disciplinas', 'hide_empty' => false ) ); ?>
                     <div class="row">

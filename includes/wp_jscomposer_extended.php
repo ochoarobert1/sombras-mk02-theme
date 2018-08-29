@@ -12,7 +12,8 @@ class VCExtendAddonClass {
         add_shortcode( 'sombras_media_grid', array( $this, 'render_sombras_media_grid' ) );
 
         // Register CSS and JS
-        // add_action( 'wp_enqueue_scripts', array( $this, 'loadCssAndJs' ) );
+        //add_action( 'wp_enqueue_scripts', array( $this, 'loadCssAndJs' ) );
+
     }
 
     public function integrateWithVC() {
@@ -32,6 +33,8 @@ class VCExtendAddonClass {
             'controls' => 'full',
             'icon' => get_template_directory_uri() . '/images/logo.png',
             'category' => __('Content', 'js_composer'),
+            'admin_enqueue_js' => get_template_directory_uri() . '/js/wp_composer_extended.js',
+            'admin_enqueue_css' =>  get_template_directory_uri() . '/css/wp_composer_extended.css',
             'params' => array(
                 array(
                     'type' => 'posttypes',
@@ -49,6 +52,24 @@ class VCExtendAddonClass {
                     'param_name' => 'entry_quantity',
                     'value' => '',
                     'description' => __('Inserte la cantidad de entradas a colocar en esta zona.', 'sombras')
+                ),
+                array(
+                    'type' => 'textfield',
+                    'holder' => 'div',
+                    'class' => '',
+                    'heading' => __('Tamaño de Imagen', 'sombras'),
+                    'param_name' => 'image_size',
+                    'value' => '',
+                    'description' => __('Inserte el valor del tamaño de la imagen de la entrada a mostrar, puedes usar valores en números EG: 700x300 ó puedes usar algun tamaño específico. EG: large, medium o full.', 'sombras')
+                ),
+                array(
+                    'type' => 'checkbox',
+                    'holder' => 'div',
+                    'class' => '',
+                    'heading' => __('¿Mostrar Extracto?', 'sombras'),
+                    'param_name' => 'show_excerpt',
+                    'value' => '',
+                    'description' => __('Activar esta opción si la entrada debe mostrar el extracto del contenido', 'sombras')
                 )
             )
         ) );
@@ -95,13 +116,25 @@ class VCExtendAddonClass {
 
     /* Shortcode logic how it should be rendered */
     public function render_sombras_blog_grid( $atts, $content = null ) {
-        extract( shortcode_atts( array( 'entry_quantity' => 'entry_quantity', 'post_type_selection' => 'post_type_selection' ), $atts ) );
+        extract( shortcode_atts( array( 'entry_quantity' => 'entry_quantity', 'post_type_selection' => 'post_type_selection', 'image_size' => 'image_size', 'show_excerpt' => 'show_excerpt' ), $atts ) );
         $output = '';
-        $custom_loop = new WP_Query(array('posts_per_page' => $entry_quantity, 'post_type' => $post_type_selection));
-        $output .= '<div class="container p-0"><div class="row sombras-custom-grid">';
+        if ($image_size == '') {
+            $image_size_value = 'full';
+        } else {
+            if (strpos($image_size, 'x') == true) {
+                $image_size_value = 'array('.$image_size.')';
+            } else {
+                $image_size_value = $image_size;
+            }
+        }
+
+        $custom_loop = new WP_Query(array('posts_per_page' => $entry_quantity, 'post_type' => $post_type_selection, 'order' => 'ASC', 'orderby' => 'date'));
+        $output .= '<div class="container-fluid p-0"><div class="row sombras-custom-grid">';
 
         while ($custom_loop->have_posts()) : $custom_loop->the_post();
-        $output .= '<div class="sombras-custom-grid-item col"><a href="'. get_permalink() .'" title="'. get_the_title() .'">' . get_the_post_thumbnail(get_the_ID(), "full", array("class" => "img-fluid")). '</a><h2>'. get_the_title() .'</h2></div>';
+        $output .= '<div class="sombras-custom-grid-item col"><a href="'. get_permalink() .'" title="'. get_the_title() .'">' . get_the_post_thumbnail(get_the_ID(), $image_size_value, array("class" => "img-fluid")). '</a><h2>'. get_the_title() .'</h2>';
+        if ($show_excerpt == true) { $output .= '<p>'. get_the_excerpt() .'</p>'; }
+        $output .= '</div>';
         endwhile;
         wp_reset_query();
 
@@ -119,7 +152,12 @@ class VCExtendAddonClass {
         $output .= '<ul class="list-unstyled">';
 
         while ($custom_loop->have_posts()) : $custom_loop->the_post();
-        $output .= ' <li class="media"><a href="'. get_permalink() .'" title="'. get_the_title() .'">' . get_the_post_thumbnail(get_the_ID(), "avatar", array("class" => "mr-3 media-custom-image")). '</a><div class="media-body"></a><h5 class="mt-0 mb-1">'. get_the_title() .'</h5></div></li>';
+        if ($post_type_selection == 'eventos') {
+            $fecha_evento .= '<p>'. get_post_meta(get_the_ID(), 'st_event_date', true) .'</p>';
+        } else {
+            $fecha_evento = '';
+        }
+        $output .= ' <li class="media"><a href="'. get_permalink() .'" title="'. get_the_title() .'">' . get_the_post_thumbnail(get_the_ID(), "avatar", array("class" => "mr-3 media-custom-image")). '</a><div class="media-body"></a><h5 class="mt-0 mb-1">'. get_the_title() .'</h5>'. $fecha_evento .'</div></li>';
         endwhile;
         wp_reset_query();
 

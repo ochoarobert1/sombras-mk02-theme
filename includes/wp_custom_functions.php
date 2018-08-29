@@ -157,3 +157,50 @@ class sombras_news_widget extends WP_Widget {
         return $instance;
     }
 }
+
+
+/* GETTING OUT THE LABEL IN ARCHIVES */
+
+function sombras_custom_archive_title( $title ) {
+    if ( is_category() ) {
+        $title = single_cat_title( '', false );
+    } elseif ( is_tag() ) {
+        $title = single_tag_title( '', false );
+    } elseif ( is_author() ) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>';
+    } elseif ( is_post_type_archive() ) {
+        $title = post_type_archive_title( '', false );
+    } elseif ( is_tax() ) {
+        $title = single_term_title( '', false );
+    }
+
+    return $title;
+}
+
+add_filter( 'get_the_archive_title', 'sombras_custom_archive_title' );
+
+function custom_reverse_post_order( $query ) {
+    if ( is_admin() )
+        return;
+    if (($query->is_main_query()) && (is_tax('disciplinas'))){
+        $query->set( 'posts_per_page', '-1' );
+        $query->set( 'orderby', 'date' );
+        $query->set( 'order', 'ASC' );
+    }
+}
+
+add_action( 'pre_get_posts', 'custom_reverse_post_order' );
+
+/* --------------------------------------------------------------
+    VIMEO CUSTOM FETCHER
+-------------------------------------------------------------- */
+function sombras_vimeo_fetch($link) {
+    /* REMOVER PROTOCOLO HTTPS:// */
+    $link_protocol = trim($link, 'https://');
+    /* SEPARAMOS EL LINK EN PEDAZOS EN ARRAY */
+    $link_array = explode('/', $link_protocol, 3);
+    /* DEVUELVO EL ID DEL VIDEO */
+    return $link_array[1];
+
+}
+
