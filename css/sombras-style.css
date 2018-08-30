@@ -401,6 +401,164 @@ a:hover {
 .single-curso-container {
   min-height: 40vh;
 }
+.single-curso-video-header {
+  margin: 1rem 0;
+}
+.single-curso-video-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.single-curso-video-header h3 {
+  font-weight: 300;
+  font-size: .9rem;
+}
+.single-curso-video-header h3 strong {
+  font-weight: 600;
+}
+.single-curso-video-wrapper {
+  background: black;
+  padding: 20px 0;
+}
+.single-curso-video-sidebar {
+  background: #000;
+  color: #FFF;
+  padding: 20px !important;
+}
+.single-curso-info-container {
+  background: #f7f7f7;
+  margin-top: .5rem;
+  padding: 15px !important;
+  color: #000;
+  font-size: .9rem;
+  line-height: 1.2rem;
+}
+.single-curso-info-container .nav-tabs .active {
+  border-radius: 0;
+  background: #ef0d33;
+  color: #ffffff;
+}
+.single-curso-info-container .nav-tabs a {
+  border-radius: 0;
+  color: #ef0d33;
+  font-weight: 600;
+}
+.single-curso-info-container .tab-content {
+  margin-top: 10px;
+}
+.single-curso-info-container h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.single-curso-meta-container {
+  color: #000;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px !important;
+  padding-top: 25px !important;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 2rem;
+  border-top: 1px solid #b7b7b7;
+}
+.single-curso-meta-container a {
+  color: #ef0d33;
+}
+.single-curso-meta-container h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.single-curso-related-videos h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.5px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #7b7b7b;
+}
+.single-curso-related-videos .related-videos-item {
+  font-size: .9rem;
+  line-height: 1.2rem;
+  margin-bottom: 2rem;
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-wrapper {
+  box-shadow: 0 0 16px #dbdbdb;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.single-curso-related-videos .related-videos-item h3 {
+  margin-top: .8rem;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.5px;
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-img {
+  position: relative;
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-img .related-videos-item-img-wrapper {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-img .related-videos-item-img-wrapper img {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-img .related-videos-item-img-wrapper img:hover {
+  -webkit-filter: invert(0.3);
+  -moz-filter: invert(0.3);
+  -ms-filter: invert(0.3);
+  filter: invert(0.3);
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  transform: scale(0.8);
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-info {
+  padding: 0 1rem;
+  border: 1p solid black;
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-info a {
+  color: #000000;
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-meta {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+.single-curso-related-videos .related-videos-item .related-videos-item-meta h4 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+.single-curso-related-videos .related-videos-item:hover .related-videos-item-wrapper {
+  box-shadow: 0 0 16px #afafaf;
+}
+.single-curso-related-videos .related-videos-item:hover .related-videos-item-img-wrapper {
+  opacity: 1;
+}
 /* --------------------------------------------------------------
 5.- VC - OVERRIDES
 -------------------------------------------------------------- */

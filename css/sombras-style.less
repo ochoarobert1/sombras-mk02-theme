@@ -277,7 +277,7 @@ a {
     }
 }
 
-.disciplina-video-container  {
+.disciplina-video-container {
     padding: 1rem 0;
     padding-bottom: 2rem;
 }
@@ -362,6 +362,181 @@ a {
 .single-curso-container {
     min-height: 40vh;
 }
+
+.single-curso-video-header {
+    margin: 1rem 0;
+
+    & h1 {
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: -.5px;
+    }
+
+    & h3 {
+        font-weight: 300;
+        font-size: .9rem;
+
+        & strong {
+            font-weight: 600;
+        }
+    }
+}
+
+.single-curso-video-wrapper {
+    background: black;
+    padding: 20px 0;
+}
+
+.single-curso-video-sidebar {
+    background: #000;
+    color: #FFF;
+    padding: 20px !important;
+
+}
+
+.single-curso-info-container {
+    background: #f7f7f7;
+    margin-top: .5rem;
+    padding: 15px !important;
+    color: #000;
+    font-size: .9rem;
+    line-height: 1.2rem;
+
+    & .nav-tabs {
+
+        & .active {
+            border-radius: 0;
+            background: @red;
+            color: @white;
+        }
+
+        & a {
+            border-radius: 0;
+            color: @red;
+            font-weight: 600;
+        }
+    }
+
+    & .tab-content {
+        margin-top: 10px;
+    }
+
+    & h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -.5px;
+    }
+}
+
+.single-curso-meta-container {
+    color: #000;
+    background: #f7f7f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px !important;
+    padding-top: 25px !important;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+    border-top: 1px solid #b7b7b7;
+
+    & a {
+        color: @red;
+    }
+
+    & h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: -.5px;
+    }
+}
+
+.single-curso-related-videos {
+    & h2 {
+        font-weight: 600;
+        font-size: 1.5rem;
+        letter-spacing: -.5px;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #7b7b7b;
+    }
+
+    & .related-videos-item {
+        font-size: .9rem;
+        line-height: 1.2rem;
+        margin-bottom: 2rem;
+
+        & .related-videos-item-wrapper {
+            box-shadow: 0 0 16px #dbdbdb;
+            .transition(all .3s ease-in-out);
+        }
+
+        & h3 {
+            margin-top: .8rem;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: -.5px;
+        }
+
+        & .related-videos-item-img {
+            position: relative;
+            & .related-videos-item-img-wrapper {
+                position: absolute;
+                background: rgba(0, 0, 0, 0.75);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                .transition(all .3s ease-in-out);
+
+                & img {
+                    .transition(all .3s ease-in-out);
+                    &:hover {
+                        .filter(invert(.3));
+                        .transform(scale(.8));
+                    }
+                }
+            }
+        }
+
+        & .related-videos-item-info {
+            padding: 0 1rem;
+            border: 1p solid black;
+
+            & a { color: @black; }
+        }
+
+        & .related-videos-item-meta {
+            display: flex;
+            align-content: center;
+            justify-content: space-between;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 10px;
+            padding-bottom: 5px;
+
+            & h4 {
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+
+        &:hover {
+            & .related-videos-item-wrapper {
+                box-shadow: 0 0 16px #afafaf;
+            }
+
+            & .related-videos-item-img-wrapper {
+                opacity: 1;
+            }
+        }
+    }
+}
+
 
 /* --------------------------------------------------------------
 5.- VC - OVERRIDES
