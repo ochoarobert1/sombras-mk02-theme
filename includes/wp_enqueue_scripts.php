@@ -17,8 +17,10 @@ function sombras_load_js() {
             wp_enqueue_script('bootstrap');
 
             /*- JQUERY STICKY ON LOCAL  -*/
-            //wp_register_script('sticky', get_template_directory_uri() . '/js/jquery.sticky.js', array('jquery'), '1.0.4', true);
-            //wp_enqueue_script('sticky');
+            if (is_singular('eventos')) {
+                wp_register_script('sticky', get_template_directory_uri() . '/js/jquery.sticky.js', array('jquery'), '1.0.4', true);
+                wp_enqueue_script('sticky');
+            }
 
             /*- JQUERY NICESCROLL ON LOCAL  -*/
             wp_register_script('nicescroll', get_template_directory_uri() . '/js/jquery.nicescroll.min.js', array('jquery'), '3.7.6', true);
@@ -71,8 +73,10 @@ function sombras_load_js() {
             wp_enqueue_script('bootstrap');
 
             /*- JQUERY STICKY -*/
-            //wp_register_script('sticky', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js', array('jquery'), '1.0.4', true);
-            //wp_enqueue_script('sticky');
+            if (is_singular('eventos')) {
+                wp_register_script('sticky', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.sticky/1.0.4/jquery.sticky.min.js', array('jquery'), '1.0.4', true);
+                wp_enqueue_script('sticky');
+            }
 
             /*- JQUERY NICESCROLL -*/
             wp_register_script('nicescroll', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js', array('jquery'), '3.7.6', true);

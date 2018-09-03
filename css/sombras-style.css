@@ -578,7 +578,12 @@ a:hover {
   margin-bottom: 15px;
   border-bottom: 1px solid #f0f0f0;
 }
-.media-title-container .btn-eventos {
+.media-title-container h5 {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-top: 10px !important;
+}
+.btn-eventos {
   background: #ef0d33;
   color: #ffffff;
   font-size: .8rem;
@@ -588,15 +593,16 @@ a:hover {
   border: 0;
   padding: 8px 15px;
 }
-.media-title-container h5 {
-  font-weight: 600;
-  letter-spacing: -0.5px;
-  margin-top: 10px !important;
-}
 .event-media {
   line-height: 1.8rem;
   font-size: 1rem;
   text-align: justify;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.event-media a {
+  color: #000000;
 }
 .event-single-meta-container {
   display: flex;
@@ -604,6 +610,106 @@ a:hover {
   padding-top: 10px;
   margin-top: 15px;
   border-top: 1px solid #f0f0f0;
+}
+.single-event-content {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  padding-bottom: 2rem;
+}
+.single-event-meta {
+  font-size: .9rem;
+  line-height: 1rem;
+}
+.single-event-meta .btn-eventos {
+  margin-top: 1rem;
+}
+.single-event-meta img {
+  margin-bottom: 20px;
+}
+/* --------------------------------------------------------------
+5.- GALERIAS
+-------------------------------------------------------------- */
+.archive-galerias-item {
+  text-align: center;
+}
+.archive-galerias-item img {
+  margin: 0 auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.archive-galerias-item img:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.archive-galerias-item h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.5rem;
+  margin-bottom: 15px;
+}
+.archive-galerias-item a {
+  color: #000000;
+}
+.single-galerias-container {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.single-galerias-container .gallery {
+  margin-top: 2rem !important;
+}
+.single-galerias-related-container {
+  background: #292929;
+  color: #ffffff;
+  padding: 20px 0;
+  text-align: center;
+}
+.single-galerias-related-container .archive-galerias-item a {
+  color: #ffffff;
+}
+.single-galerias-related-container h4 {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 300;
+  margin-top: .5rem;
+}
+/* --------------------------------------------------------------
+6.- TALLERES
+-------------------------------------------------------------- */
+.archive-talleres-item {
+  text-align: center;
+}
+.archive-talleres-item img {
+  margin: 0 auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.archive-talleres-item img:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  transform: scale(1.05);
+}
+.archive-talleres-item h3 {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1.5rem;
+  margin-bottom: 15px;
+}
+.archive-talleres-item a {
+  color: #000000;
 }
 /* --------------------------------------------------------------
 5.- VC - OVERRIDES

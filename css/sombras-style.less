@@ -568,18 +568,6 @@ a {
     margin-bottom: 15px;
     border-bottom: 1px solid @grayf0;
 
-    & .btn-eventos {
-        background: @red;
-        color: @white;
-        font-size: .8rem;
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: -.5px;
-        border: 0;
-        padding: 8px 15px;
-
-    }
-
     & h5 {
         font-weight: 600;
         letter-spacing: -0.5px;
@@ -587,10 +575,28 @@ a {
     }
 }
 
+.btn-eventos {
+    background: @red;
+    color: @white;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: -.5px;
+    border: 0;
+    padding: 8px 15px;
+}
+
 .event-media {
     line-height: 1.8rem;
     font-size: 1rem;
     text-align: justify;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid @grayf0;
+
+    & a {
+        color: @black;
+    }
 }
 
 .event-single-meta-container {
@@ -599,6 +605,113 @@ a {
     padding-top: 10px;
     margin-top: 15px;
     border-top: 1px solid @grayf0;
+}
+
+.single-event-content {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    padding-bottom: 2rem;
+}
+
+.single-event-meta {
+    font-size: .9rem;
+    line-height: 1rem;
+
+    & .btn-eventos {
+        margin-top: 1rem;
+    }
+
+    & img {
+        margin-bottom: 20px;
+    }
+}
+
+/* --------------------------------------------------------------
+5.- GALERIAS
+-------------------------------------------------------------- */
+.archive-galerias-item {
+    text-align: center;
+
+    & img {
+        margin: 0 auto;
+        .transition(all .3s ease-in-out);
+
+        &:hover {
+            .transform(scale(1.05));
+        }
+    }
+
+    & h3 {
+        margin-top: 10px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: -.5px;
+        line-height: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    & a {
+        color: @black;
+    }
+}
+
+.single-galerias-container {
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    & .gallery {
+        margin-top: 2rem !important;
+    }
+}
+
+.single-galerias-related-container {
+    background: #292929;
+    color: @white;
+    padding: 20px 0;
+    text-align: center;
+
+    & .archive-galerias-item {
+        & a {
+            color: @white;
+        }
+    }
+
+    & h4 {
+        font-size: 1.5rem;
+        margin-bottom: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        margin-top: .5rem;
+    }
+}
+
+/* --------------------------------------------------------------
+6.- TALLERES
+-------------------------------------------------------------- */
+.archive-talleres-item {
+    text-align: center;
+
+    & img {
+        margin: 0 auto;
+        .transition(all .3s ease-in-out);
+
+        &:hover {
+            .transform(scale(1.05));
+        }
+    }
+
+    & h3 {
+        margin-top: 10px;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: -.5px;
+        line-height: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    & a {
+        color: @black;
+    }
 }
 
 /* --------------------------------------------------------------

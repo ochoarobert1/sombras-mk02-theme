@@ -8,4 +8,8 @@ jQuery(document).ready(function ($) {
     });
 
     //jQuery("body").niceScroll();
+
+    var bottomSpace = jQuery('.the-footer').outerHeight() + 300;
+
+    jQuery('.single-event-meta-wrapper').sticky({topSpacing: 20, bottomSpacing: bottomSpace});
 }); /* end of as page load scripts */
