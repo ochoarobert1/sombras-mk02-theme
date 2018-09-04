@@ -204,3 +204,93 @@ function sombras_vimeo_fetch($link) {
 
 }
 
+
+/* --------------------------------------------------------------
+    CHANGE ORDER OF COMMENT FORM
+-------------------------------------------------------------- */
+function sombras_move_comment_field_to_bottom( $fields ) {
+    $comment_cookies = $fields['cookies'];
+    $comment_field = $fields['comment'];
+    unset( $fields['comment'] );
+    unset( $fields['cookies'] );
+    $fields['comment'] = $comment_field;
+    $fields['cookies'] = $comment_cookies;
+    return $fields;
+}
+
+add_filter( 'comment_form_fields', 'sombras_move_comment_field_to_bottom' );
+
+/* --------------------------------------------------------------
+    CHANGE PARAMS FOR FIELDS IN COMMENT FORM
+-------------------------------------------------------------- */
+
+function sombras_custom_comment_list($comment, $args, $depth) {
+    if ( 'div' === $args['style'] ) {
+        $tag       = 'div';
+        $add_below = 'comment';
+    } else {
+        $tag       = 'li';
+        $add_below = 'div-comment';
+    }?>
+<<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>"><?php
+        if ( 'div' != $args['style'] ) { ?>
+    <div id="div-comment-<?php comment_ID() ?>" class="comment-body"><?php
+                                       } ?>
+        <div class="comment-author vcard"><?php
+    if ( $args['avatar_size'] != 0 ) {
+        echo get_avatar( $comment, 70 );
+    } ?>
+        </div>
+        <div class="comment-media-body">
+            <?php printf( __( '<h5>%s</h5>' ), get_comment_author_link() ); ?>
+            <?php
+    if ( $comment->comment_approved == '0' ) { ?>
+            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php
+                                             } ?>
+            <div class="comment-meta commentmetadata">
+                <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php
+    /* translators: 1: date, 2: time */
+    printf(
+        __('%1$s at %2$s'),
+        get_comment_date('j M Y'),
+        get_comment_time('h:i A')
+    ); ?>
+                </a><?php
+    edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+            </div>
+
+            <?php comment_text(); ?>
+
+            <div class="reply"><?php
+    comment_reply_link(
+        array_merge(
+            $args,
+            array(
+                'add_below' => $add_below,
+                'depth'     => $depth,
+                'max_depth' => $args['max_depth']
+            )
+        )
+    ); ?>
+            </div>
+        </div>
+        <?php
+    if ( 'div' != $args['style'] ) : ?>
+    </div><?php
+    endif;
+}
+
+function get_post_by_slug($slug){
+    $posts = get_posts(array(
+            'name' => $slug,
+            'posts_per_page' => 1,
+            'post_type' => 'product',
+            'post_status' => 'publish'
+    ));
+
+    if(! $posts ) {
+        throw new Exception("NoSuchPostBySpecifiedID");
+    }
+
+    return $posts[0];
+}

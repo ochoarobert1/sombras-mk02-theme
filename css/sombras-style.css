@@ -125,9 +125,34 @@ THEME COMMONS
 .margint40 {
   margin-top: 40px;
 }
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* --------------------------------------------------------------
 Body default
 -------------------------------------------------------------- */
+.loader {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+.loader:after {
+  content: ' ';
+  display: block;
+  width: 15px;
+  height: 15px;
+  margin: 2px;
+  border-radius: 50%;
+  border: 2px solid #ef0d33;
+  border-color: #ef0d33 transparent #ef0d33 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
 html,
 body {
   height: 100%;
@@ -559,6 +584,220 @@ a:hover {
 .single-curso-related-videos .related-videos-item:hover .related-videos-item-img-wrapper {
   opacity: 1;
 }
+.single-curso-sidebar-item {
+  background: #ef0d33;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  min-height: 100px;
+  display: grid;
+  align-items: center;
+  font-size: .8rem;
+}
+.single-curso-sidebar-item h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+.single-curso-sidebar-item a,
+.single-curso-sidebar-item button {
+  background: #000000;
+  border: 0;
+  padding: 12px 10px;
+  color: #ffffff;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.single-curso-sidebar-item a:hover,
+.single-curso-sidebar-item button:hover {
+  background: #3e3e3e;
+}
+.custom-modal {
+  background: rgba(0, 0, 0, 0.6);
+}
+.custom-modal .modal-content {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 0;
+}
+.custom-modal .modal-content .modal-title {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.custom-modal .modal-content .modal-body .login-username input,
+.custom-modal .modal-content .modal-body .login-password input {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  background: #f0f0f0;
+}
+.custom-modal .modal-content .modal-body .login-username label,
+.custom-modal .modal-content .modal-body .login-password label {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.custom-modal .modal-content .modal-body .login-submit input {
+  margin: 0 auto;
+  display: block;
+  padding: 10px 15px;
+  background: #ef0d33;
+  color: #ffffff;
+  border-radius: 0;
+  border: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .9rem;
+  letter-spacing: -0.5px;
+}
+.custom-modal .modal-content .modal-body .login-remember {
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+}
+.custom-modal .modal-content .modal-body .login-remember label {
+  margin-bottom: 0;
+}
+.login-response {
+  font-size: .9rem;
+  letter-spacing: -0.5px;
+}
+.login-response .custom-login-error {
+  color: #ef0d33;
+  margin-right: 10px;
+}
+.login-response .custom-login-checked {
+  color: green;
+  margin-right: 10px;
+}
+.custom-comment-list .children {
+  list-style: none;
+}
+.custom-comment-list .comment-body {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 15px 0;
+}
+.custom-comment-list .comment-body a {
+  color: #000000;
+}
+.custom-comment-list .comment-body .vcard {
+  margin-right: 10px;
+}
+.custom-comment-list .comment-body .comment-media-body {
+  font-size: 1rem;
+  letter-spacing: -0.5px;
+  text-align: justify;
+  width: 100%;
+}
+.custom-comment-list .comment-body .comment-media-body h5 {
+  font-size: .9rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: .1rem;
+}
+.custom-comment-list .comment-body .comment-media-body .comment-meta {
+  margin-bottom: 10px;
+  font-size: .7rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.custom-comment-list .comment-body .comment-media-body .comment-reply-link {
+  background: #ef0d33;
+  float: right;
+  color: #ffffff;
+  padding: 5px 15px;
+}
+.custom-comment-list .comment-body .comment-media-body .comment-reply-link:hover {
+  background: #000000;
+}
+.custom-comment-form .comment-reply-title,
+.comment-respond .comment-reply-title {
+  font-size: 1rem;
+  font-weight: 600;
+  padding-top: 10px;
+  margin-bottom: 15px;
+}
+.custom-comment-form .comment-notes,
+.comment-respond .comment-notes {
+  font-size: .8rem;
+  letter-spacing: -0.5px;
+}
+.custom-comment-form .comment-form-author,
+.comment-respond .comment-form-author {
+  display: inline-block;
+  width: 48%;
+}
+.custom-comment-form .comment-form-author label,
+.comment-respond .comment-form-author label {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.custom-comment-form .comment-form-author input,
+.comment-respond .comment-form-author input {
+  width: 100%;
+}
+.custom-comment-form .comment-form-email,
+.comment-respond .comment-form-email {
+  display: inline-block;
+  width: 48%;
+}
+.custom-comment-form .comment-form-email label,
+.comment-respond .comment-form-email label {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.custom-comment-form .comment-form-email input,
+.comment-respond .comment-form-email input {
+  width: 100%;
+}
+.custom-comment-form .comment-form-comment label,
+.comment-respond .comment-form-comment label {
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+.custom-comment-form .comment-form-comment textarea,
+.comment-respond .comment-form-comment textarea {
+  width: 96.5%;
+}
+.custom-comment-form .comment-form-cookies-consent,
+.comment-respond .comment-form-cookies-consent {
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+}
+.custom-comment-form .comment-form-cookies-consent label,
+.comment-respond .comment-form-cookies-consent label {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+.custom-comment-form .form-submit .submit,
+.comment-respond .form-submit .submit {
+  padding: 10px 20px;
+  background: #ef0d33;
+  color: #ffffff;
+  border: 0;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: .8rem;
+  letter-spacing: -0.5px;
+  margin-top: 10px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.custom-comment-form .form-submit .submit:hover,
+.comment-respond .form-submit .submit:hover {
+  background: #000000;
+}
 /* --------------------------------------------------------------
 4.- EVENTOS
 -------------------------------------------------------------- */
@@ -710,6 +949,115 @@ a:hover {
 }
 .archive-talleres-item a {
   color: #000000;
+}
+/* --------------------------------------------------------------
+6. TIENDA WOOCOMMERCE
+-------------------------------------------------------------- */
+.woocommerce-custom-sidebar-container {
+  padding-right: 0;
+}
+.woocommerce-custom-sidebar-container ul {
+  list-style: none;
+  padding-left: 0;
+}
+.woocommerce-custom-sidebar-container ul .widget .widgettitle {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.5px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gainsboro;
+}
+.woocommerce-custom-archive-container .woocommerce-custom-archive-container-wrapper {
+  border-left: 1px solid #d8d8d8;
+  padding-left: 20px;
+}
+.woocommerce-custom-single-container {
+  padding-top: 1.5rem;
+}
+.woocommerce {
+  /* SINGLE PRODUCT */
+}
+.woocommerce .woocommerce-result-count {
+  margin: 0 0 1em;
+  padding-top: 10px !important;
+}
+.woocommerce .woocommerce-ordering .orderby {
+  border: 1px solid gainsboro;
+  padding: 10px;
+  border-radius: 0;
+}
+.woocommerce a.button {
+  background: #ef0d33 !important;
+  color: #ffffff !important;
+  margin: 0 auto !important;
+  display: block !important;
+  text-align: center;
+  border-radius: 0 !important;
+}
+.woocommerce a.button:hover {
+  background: #000000 !important;
+}
+.woocommerce ul.products li.product a img {
+  margin: 0 !important;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.woocommerce ul.products li.product a img:hover {
+  -webkit-filter: drop-shadow(0 0 10px black);
+  -moz-filter: drop-shadow(0 0 10px black);
+  -ms-filter: drop-shadow(0 0 10px black);
+  filter: drop-shadow(0 0 10px black);
+}
+.woocommerce ul.products li.product .price {
+  color: #ef0d33 !important;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1rem !important;
+}
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+  font-weight: 600;
+  font-size: 1.1rem !important;
+  text-align: center;
+  color: #000000 !important;
+}
+.woocommerce div.product .product_title {
+  font-weight: 300;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+  letter-spacing: -0.5px;
+}
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+  color: #ef0d33 !important;
+  font-size: 1.6rem !important;
+}
+.woocommerce .quantity .qty {
+  min-height: 36px !important;
+}
+.woocommerce #respond input#submit.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+  background-color: #ef0d33 !important;
+  border-radius: 0;
+}
+.woocommerce #respond input#submit.alt:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce input.button.alt:hover {
+  background: #000000 !important;
+}
+.woocommerce .woocommerce-error .button,
+.woocommerce .woocommerce-info .button,
+.woocommerce .woocommerce-message .button,
+.woocommerce .woocommerce-page .woocommerce-error .button,
+.woocommerce .woocommerce-page .woocommerce-info .button,
+.woocommerce .woocommerce-page .woocommerce-message .button {
+  float: right;
+  margin-top: -5px !important;
 }
 /* --------------------------------------------------------------
 5.- VC - OVERRIDES

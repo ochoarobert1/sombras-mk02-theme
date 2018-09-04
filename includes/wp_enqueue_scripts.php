@@ -121,8 +121,10 @@ function sombras_load_js() {
             wp_register_script('vimeo-js', 'https://player.vimeo.com/api/player.js', array('jquery'), '2.6.3', true);
             wp_enqueue_script('vimeo-js');
 
-            wp_register_script('video-functions', get_template_directory_uri() . '/js/sombras_video_functions.js', array('jquery', 'vimeo-js'), $version_remove, true);
-            wp_enqueue_script('video-functions');
+            if (is_user_logged_in()) {
+                wp_register_script('video-functions', get_template_directory_uri() . '/js/sombras_video_functions.js', array('jquery', 'vimeo-js'), $version_remove, true);
+                wp_enqueue_script('video-functions');
+            }
         }
 
         /*- MAIN FUNCTIONS -*/

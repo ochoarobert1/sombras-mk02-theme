@@ -60,7 +60,7 @@ require_once('includes/class-required-plugins.php');
     ADD CUSTOM WOOCOMMERCE OVERRIDES
 -------------------------------------------------------------- */
 
-//require_once('includes/wp_woocommerce_functions.php');
+require_once('includes/wp_woocommerce_functions.php');
 
 /* --------------------------------------------------------------
     ADD THEME SUPPORT
@@ -108,6 +108,16 @@ function sombras_widgets_init() {
         'after_title'   => '</h2>',
     ) );
 
+    register_sidebar( array(
+        'name' => __( 'Sidebar de Tienda', 'sombras' ),
+        'id' => 'shop_sidebar',
+        'description' => __( 'Estos widgets se mostrarán en la sección de Tienda y Categorias de Producto', 'sombras' ),
+        'before_widget' => '<li id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</li>',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ) );
+
     register_sidebars( 4, array(
         'name'          => __('Pie de Pagina %d', 'sombras'),
         'id'            => 'sidebar_footer',
@@ -117,17 +127,6 @@ function sombras_widgets_init() {
         'before_title'  => '<h2 class="widgettitle">',
         'after_title'   => '</h2>'
     ) );
-
-
-    //    register_sidebar( array(
-    //        'name' => __( 'Shop Sidebar', 'sombras' ),
-    //        'id' => 'shop_sidebar',
-    //        'description' => __( 'Estos widgets seran vistos en Tienda y Categorias de Producto', 'sombras' ),
-    //        'before_widget' => '<li id="%1$s" class="widget %2$s">',
-    //        'after_widget'  => '</li>',
-    //        'before_title'  => '<h2 class="widgettitle">',
-    //        'after_title'   => '</h2>',
-    //    ) );
 
     /* SPECIAL WIDGET FOR NEWS */
     register_widget( 'sombras_news_widget' );
@@ -186,11 +185,45 @@ require_once('includes/wp_jscomposer_extended.php');
 
 function sombras_ajax_handler(){
     if(is_singular('cursos')){
-        wp_localize_script( 'sombras-ajax', 'admin_url', array('ajax_url' => admin_url('admin-ajax.php')));
+        global $wp;
+        wp_localize_script( 'main-functions', 'admin_url', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'redirecturl' => home_url( $wp->request ),
+            'loading_message' => __( 'Verificando sus datos, por favor espere.', 'sombras' ),
+            'login_message' => __( 'Ingreso Exitoso, en breve serás redirigido.', 'sombras' )
+        ));
+        wp_localize_script( 'videos-functions', 'admin_url', array(
+            'ajax_url' => admin_url('admin-ajax.php')
+        ));
     }
 }
 
 add_action( 'wp_enqueue_scripts', 'sombras_ajax_handler' );
+
+/* --------------------------------------------------------------
+    ADD CUSTOM LOGIN FUNCTION
+-------------------------------------------------------------- */
+
+function sombras_ajax_login(){
+    check_ajax_referer( 'ajax-login-nonce', 'security' );
+
+    $info = array();
+    $info['user_login'] = $_POST['username'];
+    $info['user_password'] = $_POST['password'];
+    $info['remember'] = true;
+
+    $user_signon = wp_signon( $info, false );
+    if ( is_wp_error($user_signon) ){
+        wp_send_json(array('loggedin'=>false, 'message'=> __( 'Datos Incorrectos, Intente nuevamente.', 'sombras' )));
+    } else {
+        wp_send_json(array('loggedin'=>true, 'message' => __( 'Ingreso Exitoso, en breve serás redirigido.', 'sombras' )));
+        wp_set_current_user($user_signon->ID);
+        wp_set_auth_cookie($user_signon->ID);
+    }
+    wp_die();
+}
+
+add_action( 'wp_ajax_nopriv_sombras_ajax_login', 'sombras_ajax_login' );
 
 
 /* --------------------------------------------------------------

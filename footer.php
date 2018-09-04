@@ -35,10 +35,12 @@
             </div>
         </div>
         <div class="footer-copyright col-12">
+            <?php if (!$_SERVER['REMOTE_ADDR'] == '::1') { ?>
             <script language="JavaScript" type="text/javascript">
                 TrustLogo("https://sombrasarmy.com/wp-content/themes/sombras-mk01-theme/images/logo.png", "CL1", "none");
             </script>
             <a  href="https://ssl.comodo.com" id="comodoTL">Comodo SSL</a>
+            <?php } ?>
             <h6>2017 - <?php _e('Todos los derechos reservados', 'sonbras'); ?> - <?php _e('Desarrollado por ')?><a href="http://robertochoa.com.ve/?utm_source=footer&utm_medium=link&utm_content=sombrasarmy" target="_blank" title="<?php _e('Visita mi sitio web', 'sombras'); ?>">Robert Ochoa</a></h6>
         </div>
     </div>

@@ -91,7 +91,6 @@
                                         <a href="<?php the_permalink(); ?>" title="<?php _e('Ver Evento', 'sombras'); ?>">
                                             <h5 class="mt-0 mb-1"><?php the_title(); ?></h5>
                                         </a>
-                                        <button class="btn-md btn-eventos"><?php _e('Agregar evento a Google Calendar', 'sombras'); ?></button>
                                     </div>
                                     <?php the_excerpt(); ?>
                                     <div class="event-single-meta-container">
@@ -103,7 +102,6 @@
                                         </div>
 
                                         <div class="event-single-meta-item">
-                                            <strong><?php _e('Precio:', 'sombras'); ?></strong> <?php  echo get_post_meta(get_the_ID(), 'st_event_price', true); ?>
                                         </div>
 
                                     </div>

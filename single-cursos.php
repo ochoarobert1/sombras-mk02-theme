@@ -24,16 +24,41 @@
                                     </div>
                                 </div>
                                 <div class="single-curso-video-sidebar col-3">
-                                    membresias ideas
+                                    <?php if (is_user_logged_in()) { ?>
+
+                                    <?php } else { ?>
+                                    <div class="single-curso-sidebar-item">
+                                        <h3><?php _e('Rentar este video', 'sombras'); ?></h3>
+                                        <?php $post_product = get_post_by_slug('black-umbrella'); ?>
+                                        <?php $_product = wc_get_product( $post_product ); ?>
+                                        <p><?php echo $_product->get_price_html(); ?></p>
+                                        <a href="<?php echo get_permalink($post_product) . '?curso=' . get_the_ID(); ?>"><?php _e('Rentar video', 'sombras'); ?></a>
+                                    </div>
+                                    <div class="single-curso-sidebar-item">
+                                        <h3><?php _e('Rentar toda la disciplina', 'sombras'); ?></h3>
+                                        <?php $post_product = get_post_by_slug('silver-umbrella'); ?>
+                                        <?php $_product = wc_get_product( $post_product ); ?>
+                                        <p><?php echo $_product->get_price_html(); ?></p>
+                                        <?php $terms = get_the_terms(get_the_ID(), 'disciplinas'); ?>
+                                        <?php foreach ($terms as $term) { ?>
+                                        <?php $currentterm = $term->term_id; ?>
+                                        <?php } ?>
+                                        <a href="<?php echo get_permalink($post_product) . '?disciplina=' . $currentterm; ?>"><?php _e('Rentar disciplina', 'sombras'); ?></a>
+                                    </div>
+                                    <div class="single-curso-sidebar-item single-curso-sidebar-user">
+                                        <h3><?php _e('¿Ya adquiriste el video/curso?', 'sombras'); ?></h3>
+                                        <button data-toggle="modal" data-target="#exampleModal"><?php _e('Ingresar', 'sombras'); ?></button>
+                                    </div>
+                                    <?php } ?>
                                 </div>
                                 <div class="w-100"></div>
                                 <div class="single-curso-info-container col-12">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                                         <li class="nav-item">
-                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Descripción</a>
+                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php _e('Descripción', 'sombras'); ?></a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Comentarios</a>
+                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><?php _e('Comentarios', 'sombras'); ?></a>
                                         </li>
                                     </ul>
                                     <div class="tab-content" id="myTabContent">
@@ -53,8 +78,7 @@
                                 <div class="single-curso-meta-container col-12">
                                     <div class="single-curso-disciplina">
                                         <div class="single-curso-disciplina-wrapper">
-                                            <h4>
-                                                <?php _e('Disciplina', 'sombras')?>:</h4>
+                                            <h4><?php _e('Disciplina', 'sombras')?>:</h4>
                                             <?php $terms = get_the_terms(get_the_ID(), 'disciplinas'); ?>
                                             <?php foreach ($terms as $term) { ?>
                                             <?php $currentterm = $term->term_id; ?>
@@ -132,4 +156,34 @@
         </div>
     </div>
 </main>
+<div class="modal fade custom-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><?php _e('Ingresar al Sistema')?></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form name="login" id="login" action="" method="post">
+                    <p class="login-username">
+                        <label for="user_login">Nombre de usuario o dirección de correo</label>
+                        <input type="text" name="log" id="user_login" class="input" value="" size="20">
+                    </p>
+                    <p class="login-password">
+                        <label for="user_pass">Contraseña</label>
+                        <input type="password" name="pwd" id="user_pass" class="input" value="" size="20">
+                    </p>
+                    <p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Recuérdame</label></p>
+                    <p class="login-submit">
+                        <input type="submit" name="wp-submit" id="wp-submit" class="button button-primary" value="Acceder">
+                    </p>
+                    <?php wp_nonce_field( 'ajax-login-nonce', 'security' ); ?>
+                    <div class="login-response"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <?php get_footer(); ?>
