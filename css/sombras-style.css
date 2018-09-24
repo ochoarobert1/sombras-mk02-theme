@@ -1150,3 +1150,24 @@ a:hover {
   letter-spacing: -0.5px;
   text-shadow: 0 0 6px #000000;
 }
+.custom-media-render {
+  cursor: pointer;
+  margin-bottom: 15px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.custom-media-render p {
+  margin-bottom: 0;
+}
+.custom-media-render:hover {
+  background: #f3f3f3;
+}
+.custom-media-render h4 {
+  font-size: .8rem;
+  margin-bottom: 5px;
+}
+.custom-media-render h5 {
+  font-size: 1.1rem;
+}

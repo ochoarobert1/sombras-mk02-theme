@@ -154,10 +154,12 @@ class VCExtendAddonClass {
         while ($custom_loop->have_posts()) : $custom_loop->the_post();
         if ($post_type_selection == 'eventos') {
             $fecha_evento .= '<p>'. get_post_meta(get_the_ID(), 'st_event_date', true) .'</p>';
+            $lugar_evento .= '<h4>'. get_post_meta(get_the_ID(), 'st_event_dir', true) .'</h4>';
         } else {
             $fecha_evento = '';
+            $lugar_evento = '';
         }
-        $output .= ' <li class="media"><a href="'. get_permalink() .'" title="'. get_the_title() .'">' . get_the_post_thumbnail(get_the_ID(), "avatar", array("class" => "mr-3 media-custom-image")). '</a><div class="media-body"></a><h5 class="mt-0 mb-1">'. get_the_title() .'</h5>'. $fecha_evento .'</div></li>';
+        $output .= ' <li class="media custom-media-render"><a href="'. get_permalink() .'" title="'. get_the_title() .'">' . get_the_post_thumbnail(get_the_ID(), "avatar", array("class" => "align-self-center mr-3 media-custom-image")). '</a><div class="media-body"></a><h5 class="mt-0 mb-1">'. get_the_title() .'</h5>'. $lugar_evento . $fecha_evento .'</div></li>';
         endwhile;
         wp_reset_query();
 
