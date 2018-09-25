@@ -184,13 +184,14 @@ require_once('includes/wp_jscomposer_extended.php');
 -------------------------------------------------------------- */
 
 function sombras_ajax_handler(){
-    if(is_singular('cursos')){
+    if(is_singular('cursos') || is_singular('product')){
         global $wp;
         wp_localize_script( 'main-functions', 'admin_url', array(
             'ajax_url' => admin_url('admin-ajax.php'),
             'redirecturl' => home_url( $wp->request ),
             'loading_message' => __( 'Verificando sus datos, por favor espere.', 'sombras' ),
-            'login_message' => __( 'Ingreso Exitoso, en breve serás redirigido.', 'sombras' )
+            'login_message' => __( 'Ingreso Exitoso, en breve serás redirigido.', 'sombras' ),
+            'button_text' => __('Selecciona los videos', 'sombras'),
         ));
         wp_localize_script( 'videos-functions', 'admin_url', array(
             'ajax_url' => admin_url('admin-ajax.php')
@@ -224,6 +225,19 @@ function sombras_ajax_login(){
 }
 
 add_action( 'wp_ajax_nopriv_sombras_ajax_login', 'sombras_ajax_login' );
+
+function sombras_get_courses() {
+    $args = array('post_type' => 'cursos', 'posts_per_page' => -1);
+    $custom_query = new WP_Query($args);
+    if ($custom_query->have_posts() ) :
+    while ($custom_query->have_posts()) : $custom_query->the_post();
+    $array_values[] = array( "text" => get_the_title(), "value" => get_the_ID());
+    endwhile;
+    endif;
+    return json_encode($array_values);
+}
+add_action( 'wp_ajax_nopriv_sombras_get_courses', 'sombras_get_courses' );
+add_action( 'wp_ajax_sombras_get_courses', 'sombras_get_courses' );
 
 
 /* --------------------------------------------------------------

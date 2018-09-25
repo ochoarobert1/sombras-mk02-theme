@@ -128,6 +128,10 @@ function sombras_load_js() {
         }
 
         /*- MAIN FUNCTIONS -*/
+        wp_register_script('multiselect-js', get_template_directory_uri() . '/js/bootstrap-multiselect.js', array('jquery'), $version_remove, true);
+        wp_enqueue_script('multiselect-js');
+
+        /*- MAIN FUNCTIONS -*/
         wp_register_script('main-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), $version_remove, true);
         wp_enqueue_script('main-functions');
     }

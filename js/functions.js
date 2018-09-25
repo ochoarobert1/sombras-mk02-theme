@@ -7,6 +7,25 @@ jQuery(document).ready(function (jQuery) {
         st > lastScrollTop ? jQuery(".floating-nav").addClass("is-hidden") : jQuery(window).scrollTop() > 200 ? (jQuery(".floating-nav").removeClass("is-hidden"), setTimeout(function () {}, 200)) : jQuery(".floating-nav").addClass("is-hidden"), lastScrollTop = st, 0 == jQuery(this).scrollTop() && jQuery(".floating-nav").addClass("is-hidden");
     });
 
+    jQuery('.cart_item .qty').attr('disabled', 'disabled');
+
+    jQuery('#course_selection').multiselect({
+        buttonWidth: '100%',
+        buttonText: function(options, select) {
+            return admin_url.button_text;
+        },
+        buttonTitle: function(options, select) {
+            var labels = [];
+            var contador = 0;
+            options.each(function () {
+                labels.push('<span>' + $(this).text() + '</span>');
+                contador = contador + 1;
+            });
+            jQuery('.qty').val(contador);
+            jQuery('.course-selections-wrapper').html(labels.join(''));
+        }
+    });
+
     var bottomSpace = jQuery('.the-footer').outerHeight() + 300;
 
     //    jQuery('.single-event-meta-wrapper').sticky({

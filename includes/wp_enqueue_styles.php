@@ -61,6 +61,10 @@ function sombras_load_css() {
         wp_enqueue_style('google-fonts');
 
         /*- MAIN STYLE -*/
+        wp_register_style('multiselect-css', get_template_directory_uri() . '/css/bootstrap-multiselect.css', false, $version_remove, 'all');
+        wp_enqueue_style('multiselect-css');
+
+        /*- MAIN STYLE -*/
         wp_register_style('main-style', get_template_directory_uri() . '/css/sombras-style.css', false, $version_remove, 'all');
         wp_enqueue_style('main-style');
 
