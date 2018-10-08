@@ -251,4 +251,5 @@ if ( function_exists('add_image_size') ) {
     add_image_size('avatar', 64, 64, true);
     add_image_size('service_img', 255, 384, true);
     add_image_size('galerias_img', 340, 225, true);
+    add_image_size('banner_img', 9999, 400, array('center', 'center'));
 }

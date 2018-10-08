@@ -19,21 +19,7 @@
                                 <div class="single-curso-video-container col-9">
                                     <div class="single-curso-video-wrapper">
                                         <div class="embed-responsive embed-responsive-16by9">
-                                            <?php if(function_exists('qtrans_getLanguage')) { ?>
-                                            <?php global $wp; ?>
-                                            <?php if (qtrans_getLanguage()=="en") { ?>
-                                            <?php $video = get_post_meta(get_the_ID(), 'st_curso_link_english1', true); ?>
-                                            <?php if ($video == '') { ?>
-                                            <?php $video = get_post_meta(get_the_ID(), 'st_curso_link_spanish1', true); ?>
-                                            <?php } ?>
-                                            <iframe src="https://player.vimeo.com/video/<?php echo sombras_vimeo_fetch($video); ?>" class="embed-responsive-item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
-                                            <?php } else { ?>
-                                            <?php $video = get_post_meta(get_the_ID(), 'st_curso_link_spanish1', true); ?>
-                                            <?php if ($video == '') { ?>
-                                            <?php $video = get_post_meta(get_the_ID(), 'st_curso_link_english4', true); ?>
-                                            <?php } ?>
-                                            <iframe src="https://player.vimeo.com/video/<?php echo sombras_vimeo_fetch($video); ?>" class="embed-responsive-item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
-                                            <?php } } ?>
+                                            <iframe src="https://player.vimeo.com/video/<?php echo sombras_vimeo_fetch(get_post_meta(get_the_ID(), 'st_curso_link', true)); ?>" class="embed-responsive-item" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen allow="autoplay; encrypted-media"></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -48,9 +34,8 @@
                                         <p><?php echo $_product->get_price_html(); ?></p>
                                         <a href="<?php echo get_permalink($post_product) . '?curso=' . get_the_ID(); ?>"><?php _e('Rentar video', 'sombras'); ?></a>
                                     </div>
-<!--
                                     <div class="single-curso-sidebar-item">
-                                        <h3><?php /* _e('Rentar toda la disciplina', 'sombras'); ?></h3>
+                                        <h3><?php _e('Rentar toda la disciplina', 'sombras'); ?></h3>
                                         <?php $post_product = get_post_by_slug('silver-umbrella'); ?>
                                         <?php $_product = wc_get_product( $post_product ); ?>
                                         <p><?php echo $_product->get_price_html(); ?></p>
@@ -58,9 +43,8 @@
                                         <?php foreach ($terms as $term) { ?>
                                         <?php $currentterm = $term->term_id; ?>
                                         <?php } ?>
-                                        <a href="<?php echo get_permalink($post_product) . '?disciplina=' . $currentterm; ?>"><?php _e('Rentar disciplina', 'sombras'); */ ?></a>
+                                        <a href="<?php echo get_permalink($post_product) . '?disciplina=' . $currentterm; ?>"><?php _e('Rentar disciplina', 'sombras'); ?></a>
                                     </div>
--->
                                     <div class="single-curso-sidebar-item single-curso-sidebar-user">
                                         <h3><?php _e('¿Ya adquiriste el video/curso?', 'sombras'); ?></h3>
                                         <button data-toggle="modal" data-target="#exampleModal"><?php _e('Ingresar', 'sombras'); ?></button>

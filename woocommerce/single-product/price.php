@@ -17,10 +17,16 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+    exit; // Exit if accessed directly
 }
 
 global $product;
+$product_title = get_the_title();
+if ($product_title == 'Black Umbrella') {
+    $add_text = __('(por coreografía / video)');
+} else {
+    $add_text = '';
+}
 
 ?>
-<p class="price"><?php echo $product->get_price_html(); ?></p>
+<p class="price"><?php echo $product->get_price_html() . '<span class="custom-price-additional-text"> ' . $add_text . '</span>'; ?></p>

@@ -2,6 +2,28 @@ var lastScrollTop = 0;
 jQuery(document).ready(function (jQuery) {
     "use strict";
 
+    jQuery('#search_btn_fixed').on('click touchstart', function () {
+        jQuery('.search-container-fixed').toggleClass('search-container-hidden');
+    });
+
+    jQuery('#search_btn_sticky').on('click touchstart', function () {
+        jQuery('.search-container-sticky').toggleClass('search-container-hidden');
+    });
+
+    jQuery('#cart_btn_fixed').on('click touchstart', function () {
+        jQuery('.cart-container-fixed').toggleClass('cart-container-hidden');
+    });
+
+    jQuery('#cart_btn_sticky').on('click touchstart', function () {
+        jQuery('.cart-container-sticky').toggleClass('cart-container-hidden');
+    });
+
+    jQuery('#header_mobile_btn').on('click touchstart', function () {
+        jQuery('.header-mobile-menu-content').toggleClass('header-mobile-menu-hidden');
+    });
+
+
+
     jQuery(window).on("scroll", function () {
         var st = jQuery(this).scrollTop();
         st > lastScrollTop ? jQuery(".floating-nav").addClass("is-hidden") : jQuery(window).scrollTop() > 200 ? (jQuery(".floating-nav").removeClass("is-hidden"), setTimeout(function () {}, 200)) : jQuery(".floating-nav").addClass("is-hidden"), lastScrollTop = st, 0 == jQuery(this).scrollTop() && jQuery(".floating-nav").addClass("is-hidden");
@@ -11,10 +33,10 @@ jQuery(document).ready(function (jQuery) {
 
     jQuery('#course_selection').multiselect({
         buttonWidth: '100%',
-        buttonText: function(options, select) {
+        buttonText: function (options, select) {
             return admin_url.button_text;
         },
-        buttonTitle: function(options, select) {
+        buttonTitle: function (options, select) {
             var labels = [];
             var contador = 0;
             options.each(function () {

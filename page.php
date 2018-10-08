@@ -3,7 +3,7 @@
 <main class="container-fluid p-0" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
     <div class="row no-gutters">
         <section class="page-container col-12" role="article" itemscope itemtype="http://schema.org/BlogPosting">
-            <?php $images = rwmb_meta( 'st_image_banner', array( 'size' => 'full' ) ); ?>
+            <?php $images = rwmb_meta( 'st_image_banner', array( 'size' => 'banner_img' ) ); ?>
             <?php if ($images) { ?>
             <?php foreach ( $images as $image ) { $url = $image['url']; } ?>
             <div class="custom-page-banner col-12" style="background: url(<?php echo $url; ?>);">

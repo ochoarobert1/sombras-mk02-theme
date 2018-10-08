@@ -89,7 +89,12 @@ function add_course_product() {
     /* GETTING CART ITEMS */
     $items = $woocommerce->cart->get_cart();
     foreach($items as $item => $values) {
-        $custom_items[] = $values['course_selection'];
+        $_product = $values['data']->post;
+        if ($_product->post_title == 'Black Umbrella') {
+            $custom_items[] = $values['course_selection'];
+        } else {
+            $custom_items = array();
+        }
     }
 
     /* GETTING COURSES */
