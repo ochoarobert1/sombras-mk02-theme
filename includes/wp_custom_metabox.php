@@ -174,6 +174,13 @@ function sombras_metabox( $meta_boxes )
                 'placeholder'     => __('Nivel de Dificultad', 'sombras'),
                 'select_all_none' => false
             ),
+             array(
+                'id'    => $prefix . 'curso_link_preview',
+                'name'  => __('Preview del Video', 'sombras'),
+                'desc'  => __('Inserte el link del preview.', 'sombras'),
+                'type'  => 'text',
+                'size'  => 90
+            ),
             array(
                 'id'    => $prefix . 'curso_link_spanish',
                 'name'  => __('Link del Video (Español)', 'sombras'),
